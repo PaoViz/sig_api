@@ -14,6 +14,7 @@ public class Constants {
 	public static final String URI_API_PARROQUIA = URI_API_V1 + "parroquia";
 	public static final String URI_API_TIPO_SANGRE = URI_API_V1 + "tipo_sangre";
 	public static final String URI_API_ESTADO_CIVIL = URI_API_V1 + "estado_civil";
+	public static final String URI_API_INSTITUCION = URI_API_V1 + "institucion";
 	public static final String URI_API_TIPO_DISCAPACIDAD = URI_API_V1 + "tipo_discapacidad";
 	public static final String URI_API_TIPO_IDENTIFICACION = URI_API_V1 + "tipo_identificacion";
 	public static final String URI_API_TIPO_ENFERMEDAD = URI_API_V1 + "enfermedad_catastrofica";
