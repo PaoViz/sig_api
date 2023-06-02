@@ -32,10 +32,10 @@ import io.swagger.v3.oas.annotations.info.License;
 						url="https://instelrg.edu.ec"
 						)
 				))
-public class SigApplication {
+public class SigApiApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(SigApplication.class, args);
+		SpringApplication.run(SigApiApplication.class, args);
 	}
 
 }
