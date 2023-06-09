@@ -24,9 +24,13 @@ public abstract class GenericCrudServiceImpl<DOMAIN, DTO> implements GenericCrud
 		DOMAIN domainObjectResult = null;
 		if (optional.isEmpty()) {
 			DOMAIN domainObject = mapToDomain(dto);
-			domainObjectResult = repository.save(domainObject);
+			try {
+				domainObjectResult = repository.save(domainObject);
+			} catch (Exception e) {
+				throw new ApiException(String.format(e.getMessage()));
+			}
 		} else {
-			throw new ApiException(String.format("Registro %s ya existe en el sistema", dto));
+			throw new ApiException(String.format("Registro ya existe en el sistema"));
 		}
 		return mapToDto(domainObjectResult);
 	}
@@ -36,10 +40,14 @@ public abstract class GenericCrudServiceImpl<DOMAIN, DTO> implements GenericCrud
 		Optional<DOMAIN> optional = find(dto);
 		DOMAIN domainObjectResult = null;
 		if (optional.isEmpty()) {
-			throw new ApiException(String.format("Registro %s no existe en el sistema", dto));
+			throw new ApiException(String.format("Registro no existe en el sistema"));
 		} else {
 			DOMAIN domainObject = mapToDomain(dto);
-			domainObjectResult = repository.save(domainObject);
+			try {
+				domainObjectResult = repository.save(domainObject);
+			} catch (Exception e) {
+				throw new ApiException(String.format(e.getMessage()));
+			}
 		}
 		return mapToDto(domainObjectResult);
 	}
@@ -48,10 +56,14 @@ public abstract class GenericCrudServiceImpl<DOMAIN, DTO> implements GenericCrud
 	public void delete(DTO dto) {
 		Optional<DOMAIN> optional = find(dto);
 		if (!optional.isPresent()) {
-			throw new ApiException(String.format("Registro %s no existe en el sistema", dto));
+			throw new ApiException(String.format("Registro no existe en el sistema"));
 		} else {
 			DOMAIN domainObject = mapToDomain(dto);
-			repository.delete(domainObject);
+			try {
+				repository.delete(domainObject);
+			} catch (Exception e) {
+				throw new ApiException(String.format(e.getMessage()));
+			}
 		}
 	}
 
