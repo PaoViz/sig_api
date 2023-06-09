@@ -2,8 +2,8 @@ package ec.edu.insteclrg.sig_api.persistence;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import ec.edu.insteclrg.sig_api.domain.Tipo_Identificacion;
+import ec.edu.insteclrg.sig_api.domain.TipoIdentificacion;
 
-public interface TipoIndentificacionPersistence extends JpaRepository<Tipo_Identificacion, Long> {
+public interface TipoIndentificacionPersistence extends JpaRepository<TipoIdentificacion, Long> {
 
 }
