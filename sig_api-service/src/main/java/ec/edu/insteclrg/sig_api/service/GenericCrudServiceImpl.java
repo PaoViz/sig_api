@@ -19,8 +19,8 @@ public abstract class GenericCrudServiceImpl<DOMAIN, DTO> implements GenericCrud
 	private JpaRepository<DOMAIN, Long> repository;
 
 	@Override
-	public DTO guardar(DTO dto) {
-		Optional<DOMAIN> optional = buscar(dto);
+	public DTO save(DTO dto) {
+		Optional<DOMAIN> optional = find(dto);
 		DOMAIN domainObjectResult = null;
 		if (optional.isEmpty()) {
 			DOMAIN domainObject = mapToDomain(dto);
@@ -32,8 +32,8 @@ public abstract class GenericCrudServiceImpl<DOMAIN, DTO> implements GenericCrud
 	}
 
 	@Override
-	public DTO actualizar(DTO dto) {
-		Optional<DOMAIN> optional = buscar(dto);
+	public DTO update(DTO dto) {
+		Optional<DOMAIN> optional = find(dto);
 		DOMAIN domainObjectResult = null;
 		if (optional.isEmpty()) {
 			throw new ApiException(String.format("Registro %s no existe en el sistema", dto));
@@ -45,8 +45,8 @@ public abstract class GenericCrudServiceImpl<DOMAIN, DTO> implements GenericCrud
 	}
 
 	@Override
-	public void eliminar(DTO dto) {
-		Optional<DOMAIN> optional = buscar(dto);
+	public void delete(DTO dto) {
+		Optional<DOMAIN> optional = find(dto);
 		if (!optional.isPresent()) {
 			throw new ApiException(String.format("Registro %s no existe en el sistema", dto));
 		} else {
@@ -56,7 +56,7 @@ public abstract class GenericCrudServiceImpl<DOMAIN, DTO> implements GenericCrud
 	}
 
 	@Override
-	public List<DTO> buscarTodo(DTO dto) {
+	public List<DTO> findAll(DTO dto) {
 		DOMAIN domain = mapToDomain(dto);
 		ExampleMatcher matcher = ExampleMatcher.matching().withIgnoreNullValues().withIgnorePaths("id");
 		List<DOMAIN> objList = repository.findAll(Example.of(domain, matcher));

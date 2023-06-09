@@ -20,7 +20,7 @@ public class CantonService extends GenericCrudServiceImpl<Canton, CantonDTO>{
 	private ModelMapper modelMapper = new ModelMapper();
 
 	@Override
-	public Optional<Canton> buscar(CantonDTO dto) {
+	public Optional<Canton> find(CantonDTO dto) {
 		return repository.findById(dto.getId());
 	}
 

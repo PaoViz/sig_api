@@ -20,7 +20,7 @@ public class SexoService extends GenericCrudServiceImpl<Sexo, SexoDTO> {
 	private ModelMapper modelMapper = new ModelMapper();
 	
 	@Override
-	public Optional<Sexo> buscar(SexoDTO dto) {
+	public Optional<Sexo> find(SexoDTO dto) {
 		return repository.findById(dto.getId());
 	}
 

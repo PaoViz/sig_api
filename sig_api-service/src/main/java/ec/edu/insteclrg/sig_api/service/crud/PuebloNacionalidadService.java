@@ -20,7 +20,7 @@ public class PuebloNacionalidadService extends GenericCrudServiceImpl<PuebloNaci
 	private ModelMapper modelMapper = new ModelMapper();
 	
 	@Override
-	public Optional<PuebloNacionalidad> buscar(PuebloNacionalidadDTO dto) {
+	public Optional<PuebloNacionalidad> find(PuebloNacionalidadDTO dto) {
 		return repository.findById(dto.getId());
 	}
 

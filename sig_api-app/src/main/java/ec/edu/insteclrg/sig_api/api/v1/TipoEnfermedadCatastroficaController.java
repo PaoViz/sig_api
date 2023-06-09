@@ -1,4 +1,4 @@
-package ec.edu.insteclrg.sig_api.app.api.v1;
+package ec.edu.insteclrg.sig_api.api.v1;
 
 import java.util.List;
 
@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import ec.edu.insteclrg.sig_api.app.common.Constants;
+import ec.edu.insteclrg.sig_api.common.Constants;
 import ec.edu.insteclrg.sig_api.dto.ApiResponseDTO;
 import ec.edu.insteclrg.sig_api.dto.TipoEnfermedadCatastroficaDTO;
 import ec.edu.insteclrg.sig_api.service.crud.TipoEnfermedadCatastroficaService;
@@ -34,7 +34,7 @@ public class TipoEnfermedadCatastroficaController {
 	@Operation(summary = "Lista todos los Tipos de Enfermedades Catastroficas")
 	@GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Object> listar() {
-		List<TipoEnfermedadCatastroficaDTO> list = service.buscarTodo(new TipoEnfermedadCatastroficaDTO());
+		List<TipoEnfermedadCatastroficaDTO> list = service.findAll(new TipoEnfermedadCatastroficaDTO());
 		if (!list.isEmpty()) {
 			ApiResponseDTO<List<TipoEnfermedadCatastroficaDTO>> response = new ApiResponseDTO<>(true, list);
 			return (new ResponseEntity<Object>(response, HttpStatus.OK));
@@ -46,14 +46,14 @@ public class TipoEnfermedadCatastroficaController {
 	@Operation(summary = "Guarda un nuevo Tipo de Enfermedad Catastrofica")
 	@PostMapping(produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Object> guardar(@RequestBody TipoEnfermedadCatastroficaDTO TipoEnfermedadCatastroficaDTO) {
-		TipoEnfermedadCatastroficaDTO TipoEnfermedadCatastroficaDTOResult = service.guardar(TipoEnfermedadCatastroficaDTO);
+		TipoEnfermedadCatastroficaDTO TipoEnfermedadCatastroficaDTOResult = service.save(TipoEnfermedadCatastroficaDTO);
 		return new ResponseEntity<>(new ApiResponseDTO<>(true, TipoEnfermedadCatastroficaDTOResult), HttpStatus.CREATED);
 	}
 
 	@Operation(summary = "Actualiza un Tipo de Enfermedad Catastrofica")
 	@PutMapping(produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Object> actualizar(@RequestBody TipoEnfermedadCatastroficaDTO TipoEnfermedadCatastroficaDTO) {
-		TipoEnfermedadCatastroficaDTO resultDTO = service.actualizar(TipoEnfermedadCatastroficaDTO);
+		TipoEnfermedadCatastroficaDTO resultDTO = service.update(TipoEnfermedadCatastroficaDTO);
 		return new ResponseEntity<>(new ApiResponseDTO<>(true, resultDTO), HttpStatus.CREATED);
 	}
 
@@ -62,7 +62,7 @@ public class TipoEnfermedadCatastroficaController {
 	public ResponseEntity<Object> buscarPorId(@Valid @PathVariable("id") long id) {
 		TipoEnfermedadCatastroficaDTO dto = new TipoEnfermedadCatastroficaDTO();
 		dto.setId(id);
-		return new ResponseEntity<>(new ApiResponseDTO<>(true, service.buscar(dto)), HttpStatus.OK);
+		return new ResponseEntity<>(new ApiResponseDTO<>(true, service.find(dto)), HttpStatus.OK);
 	}
 	
 	

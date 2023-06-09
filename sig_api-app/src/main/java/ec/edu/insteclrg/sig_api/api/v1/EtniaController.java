@@ -1,4 +1,4 @@
-package ec.edu.insteclrg.sig_api.app.api.v1;
+package ec.edu.insteclrg.sig_api.api.v1;
 
 import java.util.List;
 
@@ -14,53 +14,54 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import ec.edu.insteclrg.sig_api.app.common.Constants;
+import ec.edu.insteclrg.sig_api.common.Constants;
 import ec.edu.insteclrg.sig_api.dto.ApiResponseDTO;
-import ec.edu.insteclrg.sig_api.dto.InstitucionDTO;
-import ec.edu.insteclrg.sig_api.service.crud.InstitucionService;
+import ec.edu.insteclrg.sig_api.dto.EtniaDTO;
+import ec.edu.insteclrg.sig_api.service.crud.EtniaService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 
 @RestController
-@RequestMapping(value = { Constants.URI_API_INSTITUCION })
-@Tag(name = "Institucion", description = "Gestiona la institucion (ej. Solo puede ver una institucion)")
-public class InstitucionController {
-
+@RequestMapping(value = { Constants.URI_API_ETNIA })
+@Tag(name = "Etnia", description = "Gestiona etnias (ej. Mestizo, Afroecuatoriano, etc.")
+public class EtniaController {
+	
 	@Autowired
-	InstitucionService service;
-
-	@Operation(summary = "Lista la institucion")
+	private EtniaService service;
+	
+	@Operation(summary = "Lista todos las Etnias")
 	@GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Object> listar() {
-		List<InstitucionDTO> list = service.buscarTodo(new InstitucionDTO());
+		List<EtniaDTO> list = service.findAll(new EtniaDTO());
 		if (!list.isEmpty()) {
-			ApiResponseDTO<List<InstitucionDTO>> response = new ApiResponseDTO<>(true, list);
+			ApiResponseDTO<List<EtniaDTO>> response = new ApiResponseDTO<>(true, list);
 			return (new ResponseEntity<Object>(response, HttpStatus.OK));
 		} else {
 			return new ResponseEntity<>(new ApiResponseDTO<>(false, null), HttpStatus.NOT_FOUND);
 		}
 	}
 
-	@Operation(summary = "Guarda una nueva Institucion")
+	@Operation(summary = "Guarda una nueva Etnia")
 	@PostMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<Object> guardar(@RequestBody InstitucionDTO InstitucionDTO) {
-		InstitucionDTO InstitucionDTOResult = service.guardar(InstitucionDTO);
-		return new ResponseEntity<>(new ApiResponseDTO<>(true, InstitucionDTOResult), HttpStatus.CREATED);
+	public ResponseEntity<Object> guardar(@RequestBody EtniaDTO EtniaDTO) {
+		EtniaDTO EtniaDTOResult = service.save(EtniaDTO);
+		return new ResponseEntity<>(new ApiResponseDTO<>(true, EtniaDTOResult), HttpStatus.CREATED);
 	}
 
-	@Operation(summary = "Actualiza la Institucion")
+	@Operation(summary = "Actualiza una Etnia")
 	@PutMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<Object> actualizar(@RequestBody InstitucionDTO InstitucionDTO) {
-		InstitucionDTO resultDTO = service.actualizar(InstitucionDTO);
+	public ResponseEntity<Object> actualizar(@RequestBody EtniaDTO EtniaDTO) {
+		EtniaDTO resultDTO = service.update(EtniaDTO);
 		return new ResponseEntity<>(new ApiResponseDTO<>(true, resultDTO), HttpStatus.CREATED);
 	}
 
-	@Operation(summary = "Recupera por id una Institucion si existen varias")
+	@Operation(summary = "Recupera por id una Etnia")
 	@GetMapping(value = "{id}/archivo/id", produces = { MediaType.APPLICATION_JSON_VALUE })
 	public ResponseEntity<Object> buscarPorId(@Valid @PathVariable("id") long id) {
-		InstitucionDTO dto = new InstitucionDTO();
+		EtniaDTO dto = new EtniaDTO();
 		dto.setId(id);
-		return new ResponseEntity<>(new ApiResponseDTO<>(true, service.buscar(dto)), HttpStatus.OK);
+		return new ResponseEntity<>(new ApiResponseDTO<>(true, service.find(dto)), HttpStatus.OK);
 	}
+
 }

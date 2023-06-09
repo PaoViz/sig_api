@@ -21,7 +21,7 @@ public class TipoDiscapacidadService  extends GenericCrudServiceImpl<TipoDiscapa
 	private ModelMapper modelMapper = new ModelMapper();
 	
 	@Override
-	public Optional<TipoDiscapacidad> buscar(TipoDiscapacidadDTO dto) {
+	public Optional<TipoDiscapacidad> find(TipoDiscapacidadDTO dto) {
 		return repository.findById(dto.getId());
 	}
 

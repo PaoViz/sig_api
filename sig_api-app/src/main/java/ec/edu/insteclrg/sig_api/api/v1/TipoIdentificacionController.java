@@ -1,4 +1,4 @@
-package ec.edu.insteclrg.sig_api.app.api.v1;
+package ec.edu.insteclrg.sig_api.api.v1;
 
 import java.util.List;
 
@@ -14,56 +14,54 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import ec.edu.insteclrg.sig_api.app.common.Constants;
+import ec.edu.insteclrg.sig_api.common.Constants;
 import ec.edu.insteclrg.sig_api.dto.ApiResponseDTO;
-import ec.edu.insteclrg.sig_api.dto.TipoDiscapacidadDTO;
-import ec.edu.insteclrg.sig_api.service.crud.TipoDiscapacidadService;
+import ec.edu.insteclrg.sig_api.dto.Tipo_IdentificacionDTO;
+import ec.edu.insteclrg.sig_api.service.crud.TipoIdentificacionService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 
 @RestController
-@RequestMapping(value = { Constants.URI_API_TIPO_DISCAPACIDAD })
-@Tag(name = "Tipo_Discacidad", description = "Gestiona los tipos de discapaciad (ej. Intelectual, Mental, etc.")
-public class TipoDiscapacidadController {
+@RequestMapping(value = { Constants.URI_API_TIPO_IDENTIFICACION })
+@Tag(name = "Tipo_Identificacion", description = "Gestiona Tipos de identificacion (ej. Cedula, Pasaporte, etc.")
+public class TipoIdentificacionController {
 	
 	@Autowired
-	private TipoDiscapacidadService service;
+	private TipoIdentificacionService service;
 	
-	@Operation(summary = "Lista todos los tipos de discapacidad")
+	@Operation(summary = "Lista todos los tipos de identificacion")
 	@GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Object> listar() {
-		List<TipoDiscapacidadDTO> list = service.buscarTodo(new TipoDiscapacidadDTO());
+		List<Tipo_IdentificacionDTO> list = service.findAll(new Tipo_IdentificacionDTO());
 		if (!list.isEmpty()) {
-			ApiResponseDTO<List<TipoDiscapacidadDTO>> response = new ApiResponseDTO<>(true, list);
+			ApiResponseDTO<List<Tipo_IdentificacionDTO>> response = new ApiResponseDTO<>(true, list);
 			return (new ResponseEntity<Object>(response, HttpStatus.OK));
 		} else {
 			return new ResponseEntity<>(new ApiResponseDTO<>(false, null), HttpStatus.NOT_FOUND);
 		}
 	}
 
-	@Operation(summary = "Guarda un nuevo Tipo de Discapacidad")
+	@Operation(summary = "Guarda un nuevo tipo de identificacion")
 	@PostMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<Object> guardar(@RequestBody TipoDiscapacidadDTO TipoDiscapacidadDTO) {
-		TipoDiscapacidadDTO TipoDiscapacidadDTOResult = service.guardar(TipoDiscapacidadDTO);
-		return new ResponseEntity<>(new ApiResponseDTO<>(true, TipoDiscapacidadDTOResult), HttpStatus.CREATED);
+	public ResponseEntity<Object> guardar(@RequestBody Tipo_IdentificacionDTO Tipo_IdentificacionDTO) {
+		Tipo_IdentificacionDTO Tipo_IdentificacionDTOResult = service.save(Tipo_IdentificacionDTO);
+		return new ResponseEntity<>(new ApiResponseDTO<>(true, Tipo_IdentificacionDTOResult), HttpStatus.CREATED);
 	}
 
-	@Operation(summary = "Actualiza un Tipo de Discapacidad")
+	@Operation(summary = "Actualiza un tipo de identificacion")
 	@PutMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<Object> actualizar(@RequestBody TipoDiscapacidadDTO TipoDiscapacidadDTO) {
-		TipoDiscapacidadDTO resultDTO = service.actualizar(TipoDiscapacidadDTO);
+	public ResponseEntity<Object> actualizar(@RequestBody Tipo_IdentificacionDTO Tipo_IdentificacionDTO) {
+		Tipo_IdentificacionDTO resultDTO = service.update(Tipo_IdentificacionDTO);
 		return new ResponseEntity<>(new ApiResponseDTO<>(true, resultDTO), HttpStatus.CREATED);
 	}
 
-	@Operation(summary = "Recupera por id un Tipo de Discapacidad")
+	@Operation(summary = "Recupera por id un tipo de identificacion")
 	@GetMapping(value = "{id}/archivo/id", produces = { MediaType.APPLICATION_JSON_VALUE })
 	public ResponseEntity<Object> buscarPorId(@Valid @PathVariable("id") long id) {
-		TipoDiscapacidadDTO dto = new TipoDiscapacidadDTO();
+		Tipo_IdentificacionDTO dto = new Tipo_IdentificacionDTO();
 		dto.setId(id);
-		return new ResponseEntity<>(new ApiResponseDTO<>(true, service.buscar(dto)), HttpStatus.OK);
+		return new ResponseEntity<>(new ApiResponseDTO<>(true, service.find(dto)), HttpStatus.OK);
 	}
-	
-	
 
 }

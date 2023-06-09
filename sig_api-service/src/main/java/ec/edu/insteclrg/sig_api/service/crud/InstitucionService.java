@@ -20,7 +20,7 @@ public class InstitucionService extends GenericCrudServiceImpl<Institucion, Inst
 	private ModelMapper modelMapper = new ModelMapper();
 	
 	@Override
-	public Optional<Institucion> buscar(InstitucionDTO dto) {
+	public Optional<Institucion> find(InstitucionDTO dto) {
 		return repository.findById(dto.getId());
 	}
 

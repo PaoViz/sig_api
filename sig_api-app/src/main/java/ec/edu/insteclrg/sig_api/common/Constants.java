@@ -1,4 +1,4 @@
-package ec.edu.insteclrg.sig_api.app.common;
+package ec.edu.insteclrg.sig_api.common;
 
 public class Constants {
 	private Constants() {

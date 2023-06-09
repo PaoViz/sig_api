@@ -20,7 +20,7 @@ public class TipoSangreService extends GenericCrudServiceImpl<TipoSangre,TipoSan
 	private ModelMapper modelMapper = new ModelMapper();
 	
 	@Override
-	public Optional<TipoSangre> buscar(TipoSangreDTO dto) {
+	public Optional<TipoSangre> find(TipoSangreDTO dto) {
 		return repository.findById(dto.getId());
 	}
 

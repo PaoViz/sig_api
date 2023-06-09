@@ -1,4 +1,4 @@
-package ec.edu.insteclrg.sig_api.app.api.v1;
+package ec.edu.insteclrg.sig_api.api.v1;
 
 import java.util.List;
 
@@ -14,55 +14,54 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import ec.edu.insteclrg.sig_api.app.common.Constants;
+import ec.edu.insteclrg.sig_api.common.Constants;
 import ec.edu.insteclrg.sig_api.dto.ApiResponseDTO;
-import ec.edu.insteclrg.sig_api.dto.ProvinciaDTO;
-import ec.edu.insteclrg.sig_api.service.crud.ProvinciaService;
+import ec.edu.insteclrg.sig_api.dto.CantonDTO;
+import ec.edu.insteclrg.sig_api.service.crud.CantonService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 
 @RestController
-@RequestMapping(value = { Constants.URI_API_PROVINCIA })
-@Tag(name = "Provincia", description = "Gestiona provincias (ej. Azuay, Guayas, etc.")
-public class ProvinciaController {
+@RequestMapping(value = { Constants.URI_API_CANTON })
+@Tag(name = "Canton", description = "Gestiona los Cantones (ej. Cuenca, Azogues, etc.")
+public class CantonController {
 	
 	@Autowired
-	private ProvinciaService service;
+	private CantonService service;
 	
-	@Operation(summary = "Lista todos las Provincias")
+	@Operation(summary = "Lista todos los Cantones")
 	@GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Object> listar() {
-		List<ProvinciaDTO> list = service.buscarTodo(new ProvinciaDTO());
+		List<CantonDTO> list = service.findAll(new CantonDTO());
 		if (!list.isEmpty()) {
-			ApiResponseDTO<List<ProvinciaDTO>> response = new ApiResponseDTO<>(true, list);
+			ApiResponseDTO<List<CantonDTO>> response = new ApiResponseDTO<>(true, list);
 			return (new ResponseEntity<Object>(response, HttpStatus.OK));
 		} else {
 			return new ResponseEntity<>(new ApiResponseDTO<>(false, null), HttpStatus.NOT_FOUND);
 		}
 	}
 
-	@Operation(summary = "Guarda una nueva Provincia")
+	@Operation(summary = "Guarda un nuevo Canton")
 	@PostMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<Object> guardar(@RequestBody ProvinciaDTO ProvinciaDTO) {
-		ProvinciaDTO ProvinciaDTOResult = service.guardar(ProvinciaDTO);
-		return new ResponseEntity<>(new ApiResponseDTO<>(true, ProvinciaDTOResult), HttpStatus.CREATED);
+	public ResponseEntity<Object> guardar(@RequestBody CantonDTO CantonDTO) {
+		CantonDTO CantonDTOResult = service.save(CantonDTO);
+		return new ResponseEntity<>(new ApiResponseDTO<>(true, CantonDTOResult), HttpStatus.CREATED);
 	}
 
-	@Operation(summary = "Actualiza una Provincia")
+	@Operation(summary = "Actualiza un Canton")
 	@PutMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<Object> actualizar(@RequestBody ProvinciaDTO ProvinciaDTO) {
-		ProvinciaDTO resultDTO = service.actualizar(ProvinciaDTO);
+	public ResponseEntity<Object> actualizar(@RequestBody CantonDTO CantonDTO) {
+		CantonDTO resultDTO = service.update(CantonDTO);
 		return new ResponseEntity<>(new ApiResponseDTO<>(true, resultDTO), HttpStatus.CREATED);
 	}
 
-	@Operation(summary = "Recupera por id una Provincia")
+	@Operation(summary = "Recupera por id un Canton")
 	@GetMapping(value = "{id}/archivo/id", produces = { MediaType.APPLICATION_JSON_VALUE })
 	public ResponseEntity<Object> buscarPorId(@Valid @PathVariable("id") long id) {
-		ProvinciaDTO dto = new ProvinciaDTO();
+		CantonDTO dto = new CantonDTO();
 		dto.setId(id);
-		return new ResponseEntity<>(new ApiResponseDTO<>(true, service.buscar(dto)), HttpStatus.OK);
+		return new ResponseEntity<>(new ApiResponseDTO<>(true, service.find(dto)), HttpStatus.OK);
 	}
-
 
 }

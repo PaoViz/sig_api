@@ -20,7 +20,7 @@ public class TipoIdentificacionService extends GenericCrudServiceImpl<Tipo_Ident
 	private ModelMapper modelMapper = new ModelMapper();
 	
 	@Override
-	public Optional<Tipo_Identificacion> buscar(Tipo_IdentificacionDTO dto) {
+	public Optional<Tipo_Identificacion> find(Tipo_IdentificacionDTO dto) {
 		return repository.findById(dto.getId());
 	}
 

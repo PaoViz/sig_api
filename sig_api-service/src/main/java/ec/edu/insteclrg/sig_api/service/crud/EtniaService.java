@@ -20,7 +20,7 @@ public class EtniaService extends GenericCrudServiceImpl<Etnia, EtniaDTO> {
 	private ModelMapper modelMapper = new ModelMapper();
 	
 	@Override
-	public Optional<Etnia> buscar(EtniaDTO dto) {
+	public Optional<Etnia> find(EtniaDTO dto) {
 		return repository.findById(dto.getId());
 	}
 

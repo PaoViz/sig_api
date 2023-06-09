@@ -1,4 +1,4 @@
-package ec.edu.insteclrg.sig_api.app.api.v1;
+package ec.edu.insteclrg.sig_api.api.v1;
 
 import java.util.List;
 
@@ -14,54 +14,54 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import ec.edu.insteclrg.sig_api.app.common.Constants;
+import ec.edu.insteclrg.sig_api.common.Constants;
 import ec.edu.insteclrg.sig_api.dto.ApiResponseDTO;
-import ec.edu.insteclrg.sig_api.dto.SexoDTO;
-import ec.edu.insteclrg.sig_api.service.crud.SexoService;
+import ec.edu.insteclrg.sig_api.dto.EstadoCivilDTO;
+import ec.edu.insteclrg.sig_api.service.crud.EstadoCivilService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 
 @RestController
-@RequestMapping(value = { Constants.URI_API_SEXO })
-@Tag(name = "Sexo", description = "Gestiona Sexos (ej. Hombre, Mujer, etc.")
-public class SexoController {
+@RequestMapping(value = { Constants.URI_API_ESTADO_CIVIL })
+@Tag(name = "EstadoCivil", description = "Gestiona los estados civiles (ej. Soltero, Casado, etc.")
+public class EstadoCivilController {
 	
 	@Autowired
-	private SexoService service;
+	private EstadoCivilService service;
 	
-	@Operation(summary = "Lista todos los sexos")
+	@Operation(summary = "Lista todos los estados civiles")
 	@GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Object> listar() {
-		List<SexoDTO> list = service.buscarTodo(new SexoDTO());
+		List<EstadoCivilDTO> list = service.findAll(new EstadoCivilDTO());
 		if (!list.isEmpty()) {
-			ApiResponseDTO<List<SexoDTO>> response = new ApiResponseDTO<>(true, list);
+			ApiResponseDTO<List<EstadoCivilDTO>> response = new ApiResponseDTO<>(true, list);
 			return (new ResponseEntity<Object>(response, HttpStatus.OK));
 		} else {
 			return new ResponseEntity<>(new ApiResponseDTO<>(false, null), HttpStatus.NOT_FOUND);
 		}
 	}
 
-	@Operation(summary = "Guarda un nuevo Sexo")
+	@Operation(summary = "Guarda un nuevo estado civil")
 	@PostMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<Object> guardar(@RequestBody SexoDTO sexoDTO) {
-		SexoDTO SexoDTOResult = service.guardar(sexoDTO);
-		return new ResponseEntity<>(new ApiResponseDTO<>(true, SexoDTOResult), HttpStatus.CREATED);
+	public ResponseEntity<Object> guardar(@RequestBody EstadoCivilDTO EstadoCivilDTO) {
+		EstadoCivilDTO EstadoCivilDTOResult = service.save(EstadoCivilDTO);
+		return new ResponseEntity<>(new ApiResponseDTO<>(true, EstadoCivilDTOResult), HttpStatus.CREATED);
 	}
 
-	@Operation(summary = "Actualiza un Sexo")
+	@Operation(summary = "Actualiza un estado civil")
 	@PutMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<Object> actualizar(@RequestBody SexoDTO SexoDTO) {
-		SexoDTO resultDTO = service.actualizar(SexoDTO);
+	public ResponseEntity<Object> actualizar(@RequestBody EstadoCivilDTO EstadoCivilDTO) {
+		EstadoCivilDTO resultDTO = service.update(EstadoCivilDTO);
 		return new ResponseEntity<>(new ApiResponseDTO<>(true, resultDTO), HttpStatus.CREATED);
 	}
 
-	@Operation(summary = "Recupera por id un Sexo")
+	@Operation(summary = "Recupera por id un estado civil")
 	@GetMapping(value = "{id}/archivo/id", produces = { MediaType.APPLICATION_JSON_VALUE })
 	public ResponseEntity<Object> buscarPorId(@Valid @PathVariable("id") long id) {
-		SexoDTO dto = new SexoDTO();
+		EstadoCivilDTO dto = new EstadoCivilDTO();
 		dto.setId(id);
-		return new ResponseEntity<>(new ApiResponseDTO<>(true, service.buscar(dto)), HttpStatus.OK);
+		return new ResponseEntity<>(new ApiResponseDTO<>(true, service.find(dto)), HttpStatus.OK);
 	}
 
 }

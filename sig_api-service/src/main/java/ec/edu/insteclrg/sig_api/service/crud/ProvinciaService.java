@@ -20,7 +20,7 @@ public class ProvinciaService extends GenericCrudServiceImpl<Provincia, Provinci
 	private ModelMapper modelMapper = new ModelMapper();
 	
 	@Override
-	public Optional<Provincia> buscar(ProvinciaDTO dto) {
+	public Optional<Provincia> find(ProvinciaDTO dto) {
 		return repository.findById(dto.getId());
 	}
 

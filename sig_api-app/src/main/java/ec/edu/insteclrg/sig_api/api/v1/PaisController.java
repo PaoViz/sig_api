@@ -1,4 +1,4 @@
-package ec.edu.insteclrg.sig_api.app.api.v1;
+package ec.edu.insteclrg.sig_api.api.v1;
 
 import java.util.List;
 
@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import ec.edu.insteclrg.sig_api.app.common.Constants;
+import ec.edu.insteclrg.sig_api.common.Constants;
 import ec.edu.insteclrg.sig_api.dto.ApiResponseDTO;
 import ec.edu.insteclrg.sig_api.dto.PaisDTO;
 import ec.edu.insteclrg.sig_api.service.crud.PaisService;
@@ -33,7 +33,7 @@ public class PaisController {
 	@Operation(summary = "Lista todos los países")
 	@GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Object> listar() {
-		List<PaisDTO> list = service.buscarTodo(new PaisDTO());
+		List<PaisDTO> list = service.findAll(new PaisDTO());
 		if (!list.isEmpty()) {
 			ApiResponseDTO<List<PaisDTO>> response = new ApiResponseDTO<>(true, list);
 			return (new ResponseEntity<Object>(response, HttpStatus.OK));
@@ -45,14 +45,14 @@ public class PaisController {
 	@Operation(summary = "Guarda un nuevo Pais")
 	@PostMapping(produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Object> guardar(@RequestBody PaisDTO PaisDTO) {
-		PaisDTO PaisDTOResult = service.guardar(PaisDTO);
+		PaisDTO PaisDTOResult = service.save(PaisDTO);
 		return new ResponseEntity<>(new ApiResponseDTO<>(true, PaisDTOResult), HttpStatus.CREATED);
 	}
 
 	@Operation(summary = "Actualizar un Pais")
 	@PutMapping(produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Object> actualizar(@RequestBody PaisDTO PaisDTO) {
-		PaisDTO resultDTO = service.actualizar(PaisDTO);
+		PaisDTO resultDTO = service.update(PaisDTO);
 		return new ResponseEntity<>(new ApiResponseDTO<>(true, resultDTO), HttpStatus.CREATED);
 	}
 
@@ -67,7 +67,7 @@ public class PaisController {
 	public ResponseEntity<Object> buscarPorId(@Valid @PathVariable("id") long id) {
 		PaisDTO dto = new PaisDTO();
 		dto.setId(id);
-		return new ResponseEntity<>(new ApiResponseDTO<>(true, service.buscar(dto)), HttpStatus.OK);
+		return new ResponseEntity<>(new ApiResponseDTO<>(true, service.find(dto)), HttpStatus.OK);
 	}
 
 }

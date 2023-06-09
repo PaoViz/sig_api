@@ -20,7 +20,7 @@ public class ParroquiaService extends GenericCrudServiceImpl<Parroquia, Parroqui
 	private ModelMapper modelMapper = new ModelMapper();
 
 	@Override
-	public Optional<Parroquia> buscar(ParroquiaDTO dto) {
+	public Optional<Parroquia> find(ParroquiaDTO dto) {
 		return repository.findById(dto.getId());
 	}
 

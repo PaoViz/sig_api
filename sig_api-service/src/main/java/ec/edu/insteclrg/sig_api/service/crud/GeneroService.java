@@ -20,7 +20,7 @@ public class GeneroService extends GenericCrudServiceImpl<Genero, GeneroDTO> {
 	private ModelMapper modelMapper = new ModelMapper();
 
 	@Override
-	public Optional<Genero> buscar(GeneroDTO dto) {
+	public Optional<Genero> find(GeneroDTO dto) {
 		return repository.findById(dto.getId());
 	}
 

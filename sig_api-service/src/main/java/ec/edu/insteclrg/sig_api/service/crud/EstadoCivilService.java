@@ -20,7 +20,7 @@ public class EstadoCivilService extends GenericCrudServiceImpl<EstadoCivil, Esta
 	private ModelMapper modelMapper = new ModelMapper(); 
 	
 	@Override
-	public Optional<EstadoCivil> buscar(EstadoCivilDTO dto) {
+	public Optional<EstadoCivil> find(EstadoCivilDTO dto) {
 		return repository.findById(dto.getId());
 	}
 

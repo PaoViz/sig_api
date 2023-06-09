@@ -1,4 +1,4 @@
-package ec.edu.insteclrg.sig_api.app.api.v1;
+package ec.edu.insteclrg.sig_api.api.v1;
 
 import java.util.List;
 
@@ -14,54 +14,56 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import ec.edu.insteclrg.sig_api.app.common.Constants;
+import ec.edu.insteclrg.sig_api.common.Constants;
 import ec.edu.insteclrg.sig_api.dto.ApiResponseDTO;
-import ec.edu.insteclrg.sig_api.dto.EtniaDTO;
-import ec.edu.insteclrg.sig_api.service.crud.EtniaService;
+import ec.edu.insteclrg.sig_api.dto.PuebloNacionalidadDTO;
+import ec.edu.insteclrg.sig_api.service.crud.PuebloNacionalidadService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 
 @RestController
-@RequestMapping(value = { Constants.URI_API_ETNIA })
-@Tag(name = "Etnia", description = "Gestiona etnias (ej. Mestizo, Afroecuatoriano, etc.")
-public class EtniaController {
+@RequestMapping(value = { Constants.URI_API_TIPO_PUEBLO_NACIONALIDAD })
+@Tag(name = "Pueblo_Nacionalidad", description = "Gestiona de pueblos o nacionalidades (ej. Achuar, Cañari, etc.")
+public class PuebloNacionalidadController {
 	
 	@Autowired
-	private EtniaService service;
+	private PuebloNacionalidadService service;
 	
-	@Operation(summary = "Lista todos las Etnias")
+	@Operation(summary = "Lista todos los Pueblos y Nacionalidades")
 	@GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Object> listar() {
-		List<EtniaDTO> list = service.buscarTodo(new EtniaDTO());
+		List<PuebloNacionalidadDTO> list = service.findAll(new PuebloNacionalidadDTO());
 		if (!list.isEmpty()) {
-			ApiResponseDTO<List<EtniaDTO>> response = new ApiResponseDTO<>(true, list);
+			ApiResponseDTO<List<PuebloNacionalidadDTO>> response = new ApiResponseDTO<>(true, list);
 			return (new ResponseEntity<Object>(response, HttpStatus.OK));
 		} else {
 			return new ResponseEntity<>(new ApiResponseDTO<>(false, null), HttpStatus.NOT_FOUND);
 		}
 	}
 
-	@Operation(summary = "Guarda una nueva Etnia")
+	@Operation(summary = "Guarda un nuevo Pueblo o Nacionalidad")
 	@PostMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<Object> guardar(@RequestBody EtniaDTO EtniaDTO) {
-		EtniaDTO EtniaDTOResult = service.guardar(EtniaDTO);
-		return new ResponseEntity<>(new ApiResponseDTO<>(true, EtniaDTOResult), HttpStatus.CREATED);
+	public ResponseEntity<Object> guardar(@RequestBody PuebloNacionalidadDTO PuebloNacionalidadDTO) {
+		PuebloNacionalidadDTO PuebloNacionalidadDTOResult = service.save(PuebloNacionalidadDTO);
+		return new ResponseEntity<>(new ApiResponseDTO<>(true, PuebloNacionalidadDTOResult), HttpStatus.CREATED);
 	}
 
-	@Operation(summary = "Actualiza una Etnia")
+	@Operation(summary = "Actualiza un Pueblo o Nacionalidad")
 	@PutMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<Object> actualizar(@RequestBody EtniaDTO EtniaDTO) {
-		EtniaDTO resultDTO = service.actualizar(EtniaDTO);
+	public ResponseEntity<Object> actualizar(@RequestBody PuebloNacionalidadDTO PuebloNacionalidadDTO) {
+		PuebloNacionalidadDTO resultDTO = service.update(PuebloNacionalidadDTO);
 		return new ResponseEntity<>(new ApiResponseDTO<>(true, resultDTO), HttpStatus.CREATED);
 	}
 
-	@Operation(summary = "Recupera por id una Etnia")
+	@Operation(summary = "Recupera por id un Pueblo o Nacionalidad")
 	@GetMapping(value = "{id}/archivo/id", produces = { MediaType.APPLICATION_JSON_VALUE })
 	public ResponseEntity<Object> buscarPorId(@Valid @PathVariable("id") long id) {
-		EtniaDTO dto = new EtniaDTO();
+		PuebloNacionalidadDTO dto = new PuebloNacionalidadDTO();
 		dto.setId(id);
-		return new ResponseEntity<>(new ApiResponseDTO<>(true, service.buscar(dto)), HttpStatus.OK);
+		return new ResponseEntity<>(new ApiResponseDTO<>(true, service.find(dto)), HttpStatus.OK);
 	}
+	
+	
 
 }

@@ -1,4 +1,4 @@
-package ec.edu.insteclrg.sig_api.app;
+package ec.edu.insteclrg.sig_api;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

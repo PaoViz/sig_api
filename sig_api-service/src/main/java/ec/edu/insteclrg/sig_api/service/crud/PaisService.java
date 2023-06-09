@@ -21,7 +21,7 @@ public class PaisService extends GenericCrudServiceImpl<Pais, PaisDTO> {
 	private ModelMapper modelMapper = new ModelMapper();
 
 	@Override
-	public Optional<Pais> buscar(PaisDTO dto) {
+	public Optional<Pais> find(PaisDTO dto) {
 		return repository.findById(dto.getId());
 	}
 
