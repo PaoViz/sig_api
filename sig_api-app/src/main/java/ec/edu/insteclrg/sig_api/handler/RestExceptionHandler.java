@@ -21,7 +21,7 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 
 import ec.edu.insteclrg.sig_api.common.exception.ApiException;
 import ec.edu.insteclrg.sig_api.common.exception.ResourceNotFoundException;
-import ec.edu.insteclrg.sig_api.dto.ApiResponseDTO;
+import ec.edu.insteclrg.sig_api.dto.administracion.ApiResponseDTO;
 import jakarta.persistence.EntityNotFoundException;
 import jakarta.servlet.http.HttpServletRequest;
 
