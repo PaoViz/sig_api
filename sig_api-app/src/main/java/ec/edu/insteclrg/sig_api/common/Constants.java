@@ -21,7 +21,7 @@ public class Constants {
 	public static final String URI_API_TIPO_PUEBLO_NACIONALIDAD = URI_API_V1 + "pueblo_nacionalidad";
 	//public static final String URI_API_TIPO_CERTIFICADO_LABORAL = URI_API_V1 + "tipo_certificado_laboral";
 	public static final String URI_API_NIVEL_INSTRUCCION = URI_API_V1 + "nivel_instruccion";
-
+	public static final String URI_API_USUARIO = URI_API_V1 + "usuario";
 
 
 	public static final String URI_OPERATIONS = "/operaciones/";
