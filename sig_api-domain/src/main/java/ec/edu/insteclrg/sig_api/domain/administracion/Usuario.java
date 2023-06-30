@@ -26,10 +26,10 @@ public class Usuario {
 	@Column(nullable = false, unique = true)
 	private String password;
 	
-	@Column(nullable = false, unique = true)
+	@Column()
 	private String roles;
 
-	@Column(nullable = false, unique = true)
+	@Column()
 	private Boolean enabled;
 	
 
