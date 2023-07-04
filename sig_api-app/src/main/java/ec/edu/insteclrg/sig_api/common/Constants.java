@@ -23,6 +23,10 @@ public class Constants {
 	public static final String URI_API_NIVEL_INSTRUCCION = URI_API_V1 + "nivel_instruccion";
 	public static final String URI_API_USUARIO = URI_API_V1 + "usuario";
 	public static final String URI_API_MODALIDAD_CONTRATO = URI_API_V1 + "modalidad_contrato";
+	//public static final String URI_API_CARGO = URI_API_V1 + "cargo";
+	public static final String URI_API_SECTOR_PRODUCTIVO = URI_API_V1 + "sector_productivo";
+
+
 
 
 
