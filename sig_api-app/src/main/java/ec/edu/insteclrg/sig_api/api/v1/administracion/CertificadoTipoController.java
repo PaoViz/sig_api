@@ -27,7 +27,7 @@ import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping(value = { Constants.URI_API_CERTIFICADO_TIPO })
-@Tag(name = "CertificadoTipo", description = "Gestiona CertificadoTipo (ej. Ecuador, Colombia, etc.")
+@Tag(name = "CertificadoTipo", description = "Gestiona Certificado Tipo (ej. Ecuador, Colombia, etc.")
 public class CertificadoTipoController {
 	
 	@Autowired
