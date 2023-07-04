@@ -6,7 +6,6 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import ec.edu.insteclrg.sig_api.common.exception.ApiException;
 import ec.edu.insteclrg.sig_api.domain.administracion.ModalidadContrato;
 
 import ec.edu.insteclrg.sig_api.dto.administracion.ModalidadContratoDTO;
@@ -38,12 +37,4 @@ public class ModalidadContratoService extends GenericCrudServiceImpl<ModalidadCo
 		return modelMapper.map(domain, ModalidadContratoDTO.class);
 	}
 
-	public Optional<ModalidadContrato> buscarPorCodigo(String codigo) {
-		Optional<ModalidadContrato> entidad = repository.findByCodigo(codigo);
-		if (entidad.isEmpty())
-			throw new ApiException(String.format("Registro con código %s no existe en el sistema", codigo));
-		return entidad;
-	}
-
-	
 }
