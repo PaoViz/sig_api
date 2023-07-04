@@ -27,6 +27,12 @@ public class Constants {
 	public static final String URI_API_SECTOR_PRODUCTIVO = URI_API_V1 + "sector_productivo";
 	public static final String URI_API_CERTIFICADO_TIPO = URI_API_V1 + "certificado_tipo";
 	public static final String URI_API_PERIODO= URI_API_V1 + "periodo";
+	public static final String URI_API_TIPO_CONVENIO = URI_API_V1 + "tipo_convenio";
+	public static final String URI_API_CARRERA = URI_API_V1 + "carrera";
+	public static final String URI_API_CICLO = URI_API_V1 + "ciclo";
+
+
+
 
 
 
