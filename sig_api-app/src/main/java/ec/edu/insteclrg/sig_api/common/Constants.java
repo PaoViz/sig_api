@@ -22,6 +22,8 @@ public class Constants {
 	public static final String URI_API_TIPO_CERTIFICADO_LABORAL = URI_API_V1 + "tipo_certificado_laboral";
 	public static final String URI_API_NIVEL_INSTRUCCION = URI_API_V1 + "nivel_instruccion";
 	public static final String URI_API_USUARIO = URI_API_V1 + "usuario";
+	public static final String URI_API_MODALIDAD_CONTRATO = URI_API_V1 + "modalidad_contrato";
+
 
 
 	public static final String URI_OPERATIONS = "/operaciones/";
