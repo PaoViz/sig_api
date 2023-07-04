@@ -6,7 +6,7 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
-@MappedSuperclass
+
 @Getter
 @Setter
 @ToString
@@ -16,3 +16,4 @@ public class NivelInstruccionDTO {
 
     private String descripcion;
 }
+
