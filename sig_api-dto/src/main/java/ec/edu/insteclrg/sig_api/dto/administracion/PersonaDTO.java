@@ -14,6 +14,8 @@ public class PersonaDTO {
 	private Long id;
 	
 	private Tipo_IdentificacionDTO tipoIdentificacion;
+	
+	private String numeroIdentificacion;
 
 	private String primerApellido;
 
@@ -31,7 +33,7 @@ public class PersonaDTO {
 	
 	private TipoSangreDTO tipoSangre;
 	
-	private Date fechaNAcimiento;
+	private Date fechaNacimiento;
 	
 	private ParroquiaDTO parroquia;
 	

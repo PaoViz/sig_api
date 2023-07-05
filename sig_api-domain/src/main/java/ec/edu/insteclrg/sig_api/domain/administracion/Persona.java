@@ -30,6 +30,9 @@ public class Persona {
 	private TipoIdentificacion tipoIdentificacion;
 	
 	@Column(nullable = false)
+	private String numeroIdentificacion;
+	
+	@Column(nullable = false)
 	private String primerApellido;
 	
 	@Column
