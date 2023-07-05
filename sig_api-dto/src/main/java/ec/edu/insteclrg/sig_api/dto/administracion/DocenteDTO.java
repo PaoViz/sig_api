@@ -2,7 +2,6 @@ package ec.edu.insteclrg.sig_api.dto.administracion;
 
 
 
-import ec.edu.insteclrg.sig_api.dto.general.PersonaDTO;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
