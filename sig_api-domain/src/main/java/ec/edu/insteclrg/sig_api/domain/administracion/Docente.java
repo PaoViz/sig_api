@@ -17,7 +17,6 @@ import lombok.Setter;
 @Entity
 public class Docente {
 
-
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(updatable = false, nullable = false)
