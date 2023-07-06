@@ -1,6 +1,6 @@
 package ec.edu.insteclrg.sig_api.dto.administracion;
-import jakarta.persistence.MappedSuperclass;
 
+import jakarta.persistence.MappedSuperclass;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -9,10 +9,8 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-
-
-public class TituloAcademicoDTO {
+public class EmpresaFormadoraDTO {
 private Long id;
-	
-	private String descripcion;
+private Long ruc;	
+private String descripcion;
 }
