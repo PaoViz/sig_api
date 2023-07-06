@@ -30,7 +30,7 @@ public class EmpresaFormadoraController {
 	@Autowired
 	private EmpresaFormadoraService service;
 	
-	@Operation(summary = "Lista todos los titulo Academico")
+	@Operation(summary = "Lista todas las empresas formadoras")
 	@GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Object> listar() {
 		List<EmpresaFormadoraDTO> list = service.findAll(new EmpresaFormadoraDTO());
@@ -42,14 +42,14 @@ public class EmpresaFormadoraController {
 		}
 	}
 
-	@Operation(summary = "Guarda un nuevo Tipo administrativo")
+	@Operation(summary = "Guarda un nueva empresa formadora")
 	@PostMapping(produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Object> guardar(@RequestBody EmpresaFormadoraDTO EmpresaFormadoraDTO) {
 		EmpresaFormadoraDTO TituloAcademicoDTOResult = service.save(EmpresaFormadoraDTO);
 		return new ResponseEntity<>(new ApiResponseDTO<>(true, TituloAcademicoDTOResult), HttpStatus.CREATED);
 	}
 
-	@Operation(summary = "Actualiza un Tipo administrativo")
+	@Operation(summary = "Actualiza una empresa formadora")
 	@PutMapping(produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Object> actualizar(@RequestBody EmpresaFormadoraDTO EmpresaFormadoraDTO) {
 		EmpresaFormadoraDTO resultDTO = service.update(EmpresaFormadoraDTO);
@@ -57,14 +57,14 @@ public class EmpresaFormadoraController {
 	
 	}
 
-	@Operation(summary = "Recupera por id un Tipo administrativo")
+	@Operation(summary = "Recupera por id empresa formadora")
 	@GetMapping(value = "{id}/archivo/id", produces = { MediaType.APPLICATION_JSON_VALUE })
 	public ResponseEntity<Object> buscarPorId(@Valid @PathVariable("id") long id) {
 		EmpresaFormadoraDTO dto = new EmpresaFormadoraDTO();
 		dto.setId(id);
 		return new ResponseEntity<>(new ApiResponseDTO<>(true, service.find(dto)), HttpStatus.OK);
 	}
-	@Operation(summary = "Eliminar por id Tipo administrativo")
+	@Operation(summary = "Eliminar por id empresa formadora")
 	@DeleteMapping(value = "{id}/archivo/id", produces = { MediaType.APPLICATION_JSON_VALUE} )
 	public ResponseEntity<Object> eliminar(@PathVariable Long id) {
 		EmpresaFormadoraDTO dto = new EmpresaFormadoraDTO();

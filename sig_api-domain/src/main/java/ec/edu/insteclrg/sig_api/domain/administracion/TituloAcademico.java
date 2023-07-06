@@ -2,6 +2,7 @@ package ec.edu.insteclrg.sig_api.domain.administracion;
 
 import jakarta.persistence.Column;
 
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
