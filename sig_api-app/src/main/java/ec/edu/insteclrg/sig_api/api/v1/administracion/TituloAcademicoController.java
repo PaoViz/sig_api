@@ -23,7 +23,7 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 
 @RestController
-@RequestMapping("/api/v1.0/periodo")
+@RequestMapping("/api/v1.0/tituloacademico")
 @Tag(name = "Titulo Academico", description = "Gestiona titulo academico (ej.tercer nivel, cuarto nivel")
 public class TituloAcademicoController {
 	@Autowired

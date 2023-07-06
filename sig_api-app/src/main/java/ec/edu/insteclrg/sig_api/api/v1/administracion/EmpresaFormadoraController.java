@@ -24,8 +24,8 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 
 @RestController
-@RequestMapping("/api/v1.0/periodo")
-@Tag(name = "Titulo Academico", description = "Gestiona titulo academico (ej.tercer nivel, cuarto nivel")
+@RequestMapping("/api/v1.0/empresaformadora")
+@Tag(name = "Empresa Formadora", description = "Gestiona las empresas formadoras")
 public class EmpresaFormadoraController {
 	@Autowired
 	private EmpresaFormadoraService service;

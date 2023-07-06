@@ -2,10 +2,13 @@ package ec.edu.insteclrg.sig_api.service.administracion;
 
 import java.util.Optional;
 
+import org.springframework.stereotype.Service;
+
 import ec.edu.insteclrg.sig_api.domain.administracion.TipoAdministrativo;
 import ec.edu.insteclrg.sig_api.dto.administracion.TipoAdministrativoDTO;
 import ec.edu.insteclrg.sig_api.service.GenericCrudServiceImpl;
 
+@Service
 public class TipoAdministrativoService  extends GenericCrudServiceImpl<TipoAdministrativo, TipoAdministrativoDTO> {
 
 	@Override
@@ -18,6 +21,7 @@ public class TipoAdministrativoService  extends GenericCrudServiceImpl<TipoAdmin
 	public TipoAdministrativo mapToDomain(TipoAdministrativoDTO dto) {
 		// TODO Auto-generated method stub
 		return null;
+		
 	}
 
 	@Override

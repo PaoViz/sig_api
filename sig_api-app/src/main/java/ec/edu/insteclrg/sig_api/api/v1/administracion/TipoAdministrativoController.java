@@ -21,7 +21,7 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 
 @RestController
-@RequestMapping("/api/v1.0/periodo")
+@RequestMapping("/api/v1.0/tipoadministrativo")
 @Tag(name = "Tipo Administrativo", description = "Gestiona tipo administrativo")
 public class TipoAdministrativoController {
 	@Autowired
