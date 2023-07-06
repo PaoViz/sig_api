@@ -76,9 +76,9 @@ public class Persona {
 	@Column
 	private String referencia;
 	
-	@ManyToOne(cascade = CascadeType.ALL, optional = false)
-	@JoinColumn
-	private Pais paisNacionalidad;
+	//@ManyToOne(cascade = CascadeType.ALL, optional = false)
+	//@JoinColumn
+	//private Pais paisNacionalidad;
 	
 	@Column
 	private String telefonoDomicilio;
