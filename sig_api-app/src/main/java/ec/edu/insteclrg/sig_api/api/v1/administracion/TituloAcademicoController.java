@@ -23,7 +23,7 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 
 @RestController
-@RequestMapping("/api/v1.0/periodo")
+@RequestMapping("/api/v1.0/tituloacademico")
 @Tag(name = "Titulo Academico", description = "Gestiona titulo academico (ej.tercer nivel, cuarto nivel")
 public class TituloAcademicoController {
 	@Autowired
@@ -41,14 +41,14 @@ public class TituloAcademicoController {
 		}
 	}
 
-	@Operation(summary = "Guarda un nuevo Tipo administrativo")
+	@Operation(summary = "Guarda un nuevo Titulo academico")
 	@PostMapping(produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Object> guardar(@RequestBody TituloAcademicoDTO TituloAcademicoDTO) {
 		TituloAcademicoDTO TituloAcademicoDTOResult = service.save(TituloAcademicoDTO);
 		return new ResponseEntity<>(new ApiResponseDTO<>(true, TituloAcademicoDTOResult), HttpStatus.CREATED);
 	}
 
-	@Operation(summary = "Actualiza un Tipo administrativo")
+	@Operation(summary = "Actualiza un Titulo academico")
 	@PutMapping(produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Object> actualizar(@RequestBody TituloAcademicoDTO TituloAcademicoDTO) {
 		TituloAcademicoDTO resultDTO = service.update(TituloAcademicoDTO);
@@ -56,14 +56,14 @@ public class TituloAcademicoController {
 	
 	}
 
-	@Operation(summary = "Recupera por id un Tipo administrativo")
+	@Operation(summary = "Recupera por id un Titulo academico")
 	@GetMapping(value = "{id}/archivo/id", produces = { MediaType.APPLICATION_JSON_VALUE })
 	public ResponseEntity<Object> buscarPorId(@Valid @PathVariable("id") long id) {
 		TituloAcademicoDTO dto = new TituloAcademicoDTO();
 		dto.setId(id);
 		return new ResponseEntity<>(new ApiResponseDTO<>(true, service.find(dto)), HttpStatus.OK);
 	}
-	@Operation(summary = "Eliminar por id Tipo administrativo")
+	@Operation(summary = "Eliminar por id Titulo academico")
 	@DeleteMapping(value = "{id}/archivo/id", produces = { MediaType.APPLICATION_JSON_VALUE} )
 	public ResponseEntity<Object> eliminar(@PathVariable Long id) {
 		TituloAcademicoDTO dto = new TituloAcademicoDTO();
