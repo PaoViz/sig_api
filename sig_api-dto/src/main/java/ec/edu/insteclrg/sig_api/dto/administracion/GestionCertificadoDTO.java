@@ -10,10 +10,12 @@ import java.util.Date;
 @ToString
 public class GestionCertificadoDTO {
 	
+	private Long id;
 	private Date fechaCreacion;
 	private String titulo;
 	private String descripcion;
-	private long idCertificadoTipo;
-	private long idPersona;
-	private long idUsuario;
+	private CertifdicadoTipoDTO certificadoTipo;
+	private PersonaDTO persona;
+	private UsuarioDTO usuario;
 }
+
