@@ -1,6 +1,7 @@
 package ec.edu.insteclrg.sig_api.domain.administracion;
 
 import java.sql.Date;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -11,7 +12,6 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
-
 
 
 
@@ -38,6 +38,7 @@ public class GestionCertificado {
     @JoinColumn(name = "id_certificado_tipo")
     private CertificadoTipo certificadoTipo;
 
+    
     @ManyToOne
     @JoinColumn(name = "id_persona")
     private Persona persona;
