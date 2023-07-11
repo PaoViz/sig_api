@@ -33,6 +33,8 @@ public class Constants {
 	public static final String URI_API_GESTION_DOCUMENTAL = URI_API_V1 + "gestion_documental";
 	public static final String URI_API_PERSONA = URI_API_V1 + "persona";
 	public static final String URI_API_DOCENTE = URI_API_V1 + "docente";
+	public static final String URI_API_ADMINISTRATIVO = URI_API_V1 + "administrativo";
+
 
 
 
