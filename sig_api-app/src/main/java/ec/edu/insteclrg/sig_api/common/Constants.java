@@ -31,6 +31,8 @@ public class Constants {
 	public static final String URI_API_CARRERA = URI_API_V1 + "carrera";
 	public static final String URI_API_CICLO = URI_API_V1 + "ciclo";
 	public static final String URI_API_GESTION_DOCUMENTAL = URI_API_V1 + "gestion_documental";
+	public static final String URI_API_PERSONA = URI_API_V1 + "persona";
+
 
 
 
