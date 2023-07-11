@@ -1,9 +1,9 @@
 package ec.edu.insteclrg.sig_api.domain.administracion;
 
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -22,7 +22,10 @@ public class Docente {
     @Column(updatable = false, nullable = false)
     private Long id;
 	
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(nullable = false)
+    @ManyToOne(cascade = CascadeType.ALL, optional = false)
+	@JoinColumn(name = "persona_id")
     private Persona persona;
+    
+    @Column(nullable = false)
+    private Boolean activo;
 }

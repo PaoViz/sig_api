@@ -12,4 +12,6 @@ public class DocenteDTO {
 	private Long id;
 	
 	private PersonaDTO persona;
+	
+	private Boolean activo;
 }

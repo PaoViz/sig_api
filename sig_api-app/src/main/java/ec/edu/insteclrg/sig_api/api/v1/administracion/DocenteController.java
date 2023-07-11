@@ -67,19 +67,5 @@ public class DocenteController {
 		return new ResponseEntity<>(new ApiResponseDTO<>(true, service.find(dto)), HttpStatus.OK);
 	}
 	
-	@Operation(summary = "Eliminar por id un docente de la institucion")
-	@DeleteMapping(value = "{id}/archivo/id", produces = { MediaType.APPLICATION_JSON_VALUE} )
-	public ResponseEntity<Object> eliminar(@PathVariable Long id) {
-		DocenteDTO dto = new DocenteDTO();
-		dto.setId(id);
-		Optional<Docente> categoryOptional = service.find(dto);
-	
-		if(categoryOptional.isPresent()) {
-			service.delete(dto);
-			return new ResponseEntity<>(new ApiResponseDTO<>(true, null), HttpStatus.OK);
-		} else {
-			return new ResponseEntity<>(new ApiResponseDTO<>(false, null), HttpStatus.NOT_FOUND);
-		}
-	}
 	
 }
