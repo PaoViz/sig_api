@@ -2,7 +2,6 @@ package ec.edu.insteclrg.sig_api.api.v1.administracion;
 
 import java.util.List;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -16,25 +15,25 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import ec.edu.insteclrg.sig_api.dto.administracion.ApiResponseDTO;
-import ec.edu.insteclrg.sig_api.dto.administracion.TituloAcademicoDTO;
-import ec.edu.insteclrg.sig_api.service.administracion.TituloAcademicoService;
+import ec.edu.insteclrg.sig_api.dto.administracion.TipoTituloAcademicoDTO;
+import ec.edu.insteclrg.sig_api.service.administracion.TipoTituloAcademicoService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 
 @RestController
-@RequestMapping("/api/v1.0/tituloacademico")
+@RequestMapping("/api/v1.0/tipo_titulo_academico")
 @Tag(name = "Titulo Academico", description = "Gestiona titulo academico (ej.tercer nivel, cuarto nivel")
-public class TituloAcademicoController {
+public class TipoTituloAcademicoController {
 	@Autowired
-	private TituloAcademicoService service;
-	
+	private TipoTituloAcademicoService service;
+
 	@Operation(summary = "Lista todos los titulo Academico")
 	@GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Object> listar() {
-		List<TituloAcademicoDTO> list = service.findAll(new TituloAcademicoDTO());
+		List<TipoTituloAcademicoDTO> list = service.findAll(new TipoTituloAcademicoDTO());
 		if (!list.isEmpty()) {
-			ApiResponseDTO<List<TituloAcademicoDTO>> response = new ApiResponseDTO<>(true, list);
+			ApiResponseDTO<List<TipoTituloAcademicoDTO>> response = new ApiResponseDTO<>(true, list);
 			return (new ResponseEntity<Object>(response, HttpStatus.OK));
 		} else {
 			return new ResponseEntity<>(new ApiResponseDTO<>(false, null), HttpStatus.NOT_FOUND);
@@ -43,33 +42,33 @@ public class TituloAcademicoController {
 
 	@Operation(summary = "Guarda un nuevo Titulo academico")
 	@PostMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<Object> guardar(@RequestBody TituloAcademicoDTO TituloAcademicoDTO) {
-		TituloAcademicoDTO TituloAcademicoDTOResult = service.save(TituloAcademicoDTO);
+	public ResponseEntity<Object> guardar(@RequestBody TipoTituloAcademicoDTO TituloAcademicoDTO) {
+		TipoTituloAcademicoDTO TituloAcademicoDTOResult = service.save(TituloAcademicoDTO);
 		return new ResponseEntity<>(new ApiResponseDTO<>(true, TituloAcademicoDTOResult), HttpStatus.CREATED);
 	}
 
 	@Operation(summary = "Actualiza un Titulo academico")
 	@PutMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<Object> actualizar(@RequestBody TituloAcademicoDTO TituloAcademicoDTO) {
-		TituloAcademicoDTO resultDTO = service.update(TituloAcademicoDTO);
+	public ResponseEntity<Object> actualizar(@RequestBody TipoTituloAcademicoDTO TituloAcademicoDTO) {
+		TipoTituloAcademicoDTO resultDTO = service.update(TituloAcademicoDTO);
 		return new ResponseEntity<>(new ApiResponseDTO<>(true, resultDTO), HttpStatus.CREATED);
-	
+
 	}
 
 	@Operation(summary = "Recupera por id un Titulo academico")
 	@GetMapping(value = "{id}/archivo/id", produces = { MediaType.APPLICATION_JSON_VALUE })
 	public ResponseEntity<Object> buscarPorId(@Valid @PathVariable("id") long id) {
-		TituloAcademicoDTO dto = new TituloAcademicoDTO();
+		TipoTituloAcademicoDTO dto = new TipoTituloAcademicoDTO();
 		dto.setId(id);
 		return new ResponseEntity<>(new ApiResponseDTO<>(true, service.find(dto)), HttpStatus.OK);
 	}
+
 	@Operation(summary = "Eliminar por id Titulo academico")
-	@DeleteMapping(value = "{id}/archivo/id", produces = { MediaType.APPLICATION_JSON_VALUE} )
+	@DeleteMapping(value = "{id}/archivo/id", produces = { MediaType.APPLICATION_JSON_VALUE })
 	public ResponseEntity<Object> eliminar(@PathVariable Long id) {
-		TituloAcademicoDTO dto = new TituloAcademicoDTO();
+		TipoTituloAcademicoDTO dto = new TipoTituloAcademicoDTO();
 		dto.setId(id);
-	 return new ResponseEntity<>(new ApiResponseDTO<>(true, service.find(dto)), HttpStatus.OK);
-	
+		return new ResponseEntity<>(new ApiResponseDTO<>(true, service.find(dto)), HttpStatus.OK);
+
 	}
 }
-
