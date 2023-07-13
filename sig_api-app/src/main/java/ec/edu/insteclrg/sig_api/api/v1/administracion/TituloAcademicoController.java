@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import ec.edu.insteclrg.sig_api.common.Constants;
 import ec.edu.insteclrg.sig_api.domain.administracion.TituloAcademico;
 import ec.edu.insteclrg.sig_api.dto.administracion.ApiResponseDTO;
 import ec.edu.insteclrg.sig_api.dto.administracion.TituloAcademicoDTO;
@@ -24,7 +26,7 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 
 @RestController
-@RequestMapping(value = "api/v1.0/titulo_academico")
+@RequestMapping(value = { Constants.URI_API_TITULO_ACADEMICO })
 @Tag(name = "Docente", description = "Gestiona los diferentes titulos Academicos que se registran detro de la Institucion (ej. Titulo de Bachiller, etc")
 public class TituloAcademicoController {
 
