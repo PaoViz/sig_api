@@ -48,8 +48,8 @@ public class DocenteController {
 	@Operation(summary = "Guarda una nuevo docente en la institucion")
 	@PostMapping(produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Object> guardar(@RequestBody DocenteDTO docenteDTO) {
-		DocenteDTO nivelInstruccionDTOResult  = service.save(docenteDTO);
-		return new ResponseEntity<>(new ApiResponseDTO<>(true, nivelInstruccionDTOResult), HttpStatus.CREATED);
+		DocenteDTO docenteDTOResult  = service.save(docenteDTO);
+		return new ResponseEntity<>(new ApiResponseDTO<>(true, 	docenteDTOResult), HttpStatus.CREATED);
 	}
 	
 	@Operation(summary = "Actualiza el docente guardado")
