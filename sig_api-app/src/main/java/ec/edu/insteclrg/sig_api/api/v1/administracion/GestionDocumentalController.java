@@ -14,18 +14,19 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
 import ec.edu.insteclrg.sig_api.common.Constants;
 import ec.edu.insteclrg.sig_api.domain.administracion.GestionDocumental;
 import ec.edu.insteclrg.sig_api.dto.administracion.ApiResponseDTO;
 import ec.edu.insteclrg.sig_api.dto.administracion.GestionDocumentalDTO;
 import ec.edu.insteclrg.sig_api.service.administracion.GestionDocumentalService;
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 
 
 @RestController
 @RequestMapping(value = { Constants.URI_API_GESTION_DOCUMENTAL })
+@Tag(name = "Ciclo", description = "Gestion Documental")
 public class GestionDocumentalController {
 
 	@Autowired
