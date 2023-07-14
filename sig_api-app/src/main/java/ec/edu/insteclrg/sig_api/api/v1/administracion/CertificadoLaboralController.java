@@ -59,7 +59,7 @@ public class CertificadoLaboralController {
 		return new ResponseEntity<>(new ApiResponseDTO<>(true, resultDTO), HttpStatus.CREATED);
 	}
 
-	@Operation(summary = "Recupera por id un Certificado")
+	@Operation(summary = "Recupera por id un Certificado Laboral")
 	@GetMapping(value = "{id}/archivo/id", produces = { MediaType.APPLICATION_JSON_VALUE })
 	public ResponseEntity<Object> buscarPorId(@Valid @PathVariable("id") long id) {
 		CertificadoLaboralDTO dto = new CertificadoLaboralDTO();
@@ -67,7 +67,7 @@ public class CertificadoLaboralController {
 		return new ResponseEntity<>(new ApiResponseDTO<>(true, service.find(dto)), HttpStatus.OK);
 	}
 	
-	@Operation(summary = "Eliminar por id un CertificadoLaboral")
+	@Operation(summary = "Eliminar por id un Certificado Laboral")
 	@DeleteMapping(value = "{id}/archivo/id", produces = { MediaType.APPLICATION_JSON_VALUE} )
 	public ResponseEntity<Object> eliminar(@PathVariable Long id) {
 		CertificadoLaboralDTO dto = new CertificadoLaboralDTO();
