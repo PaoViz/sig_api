@@ -1,7 +1,6 @@
 package ec.edu.insteclrg.sig_api.domain.administracion;
 
-import java.sql.Date;
-
+import lombok.ToString;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -10,6 +9,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -26,12 +26,12 @@ public class GestionCertificado {
     private Long id;
 
     @Column()
-    private Date fechaCreacion;
+    private Data fechaCreacion;
 
-    @Column(nullable = false)
+    @Column()
     private String titulo;
 
-    @Column(nullable = false)
+    @Column()
     private String descripcion;
 
     @ManyToOne

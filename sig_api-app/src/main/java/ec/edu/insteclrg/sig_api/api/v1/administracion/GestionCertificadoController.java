@@ -29,15 +29,14 @@ import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("/api/v1.0/gestion_certificado")
-@Tag(name = "gestion_certificado", description = "Gestiona los certificados(ej. etc.")
+@Tag(name = "gestion_certificado", description = "Gestiona los certificados(ej. emision de certificados etc.")
 
 public class GestionCertificadoController {
 
-	
 	@Autowired
 	private GestionCertificadoService service;
 	
-	@Operation(summary = "Listar")
+	@Operation(summary = "Lista los certificados")
 	@GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Object>listar(){
 		List<GestionCertificadoDTO> list = service.findAll( new GestionCertificadoDTO());
@@ -49,20 +48,20 @@ public class GestionCertificadoController {
 			return new ResponseEntity<>(new ApiResponseDTO<>(false,null),HttpStatus.NOT_FOUND);
 		}
 	}
-	@Operation( summary = "guardar")
+	@Operation( summary = "guardar los certificados")
 	@PostMapping(produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Object>guardar(@RequestBody GestionCertificadoDTO  gestionCertificadoDTO){
 		GestionCertificadoDTO  GestionCertificadoDTOResult= service.save(gestionCertificadoDTO);
 		return new ResponseEntity<>(new ApiResponseDTO<>(true,GestionCertificadoDTOResult),HttpStatus.CREATED);
 	}
-	@Operation(summary = "Actualizar")
+	@Operation(summary = "Actualizar los certificados")
 	@PutMapping(produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Object>actualizar(@RequestBody GestionCertificadoDTO  gestionCertificadoDTO ) {
 		GestionCertificadoDTO  ResultDTO = service.update(gestionCertificadoDTO);
 		return new ResponseEntity<>(new ApiResponseDTO<>(true, ResultDTO),HttpStatus.CREATED);
 		
 	}
-	@Operation(summary = "recuperar")
+	@Operation(summary = "recuperar  certificados ")
 	@GetMapping(value = "{id}/archivo/id", produces = { MediaType.APPLICATION_JSON_VALUE})
 	public ResponseEntity<Object>buscarPorId(@Valid @PathVariable("id") long id){
 		GestionCertificadoDTO  dto= new GestionCertificadoDTO ();
@@ -70,7 +69,7 @@ public class GestionCertificadoController {
 		return new ResponseEntity<>(new ApiResponseDTO<>(true, service.find(dto)), HttpStatus.OK);
 	}
 	
-	@Operation(summary = "Eliminar")
+	@Operation(summary = "Eliminar los certificados")
 	@DeleteMapping(value = "{id}/archivo/id", produces = { MediaType.APPLICATION_JSON_VALUE} )
 	public ResponseEntity<Object> eliminar(@PathVariable Long id) {
 		GestionCertificadoDTO dto = new GestionCertificadoDTO();
