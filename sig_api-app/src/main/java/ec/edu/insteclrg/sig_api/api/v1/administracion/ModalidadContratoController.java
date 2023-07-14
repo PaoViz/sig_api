@@ -16,9 +16,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import ec.edu.insteclrg.dto.ApiResponseDTO;
+
 import ec.edu.insteclrg.sig_api.common.Constants;
 import ec.edu.insteclrg.sig_api.domain.administracion.ModalidadContrato;
+import ec.edu.insteclrg.sig_api.dto.administracion.ApiResponseDTO;
 import ec.edu.insteclrg.sig_api.dto.administracion.ModalidadContratoDTO;
 import ec.edu.insteclrg.sig_api.service.administracion.ModalidadContratoService;
 import io.swagger.v3.oas.annotations.Operation;
