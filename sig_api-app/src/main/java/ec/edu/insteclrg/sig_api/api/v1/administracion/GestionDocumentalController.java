@@ -26,7 +26,7 @@ import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping(value = { Constants.URI_API_GESTION_DOCUMENTAL })
-@Tag(name = "Ciclo", description = "Gestion Documental")
+@Tag(name = "Gestion Documental", description = "Gestion Documental")
 public class GestionDocumentalController {
 
 	@Autowired
