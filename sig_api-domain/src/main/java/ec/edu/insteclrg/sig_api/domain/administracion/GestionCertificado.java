@@ -25,7 +25,7 @@ public class GestionCertificado {
     @Column(updatable = false, nullable = false)
     private Long id;
 
-    @Column(nullable = false)
+    @Column()
     private Date fechaCreacion;
 
     @Column(nullable = false)
