@@ -19,7 +19,7 @@ public class GestionDocumentalDTO {
 	
 	private String observacion ;
 
-	private Long idPadreGestionDocumental;
+	private Long idGestionDocumentalPadre;
 	
 	private Boolean limite;
 
