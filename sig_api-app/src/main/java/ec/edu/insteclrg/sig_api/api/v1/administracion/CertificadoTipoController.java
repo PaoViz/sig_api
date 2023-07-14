@@ -27,13 +27,13 @@ import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping(value = { Constants.URI_API_CERTIFICADO_TIPO })
-@Tag(name = "CertificadoTipo", description = "Gestiona Certificado Tipo (ej. Ecuador, Colombia, etc.")
+@Tag(name = "CertificadoTipo", description = "Gestiona un Tipo de Certificado (ej. Ecuador, Colombia, etc.")
 public class CertificadoTipoController {
 	
 	@Autowired
 	CertificadoTipoService service;
 	
-	@Operation(summary = "Lista todos los CertificadoTipo")
+	@Operation(summary = "Lista todos los Tipo de Certificado")
 	@GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Object> listar() {
 		List<CertifdicadoTipoDTO> list = service.findAll(new CertifdicadoTipoDTO());
@@ -45,21 +45,21 @@ public class CertificadoTipoController {
 		}
 	}
 	
-	@Operation(summary = "Guarda un nuevo CertificadoTipo")
+	@Operation(summary = "Guarda un nuevo  Tipo de Certificado")
 	@PostMapping(produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Object> guardar(@RequestBody CertifdicadoTipoDTO certifdicadoTipoDTO) {
 		CertifdicadoTipoDTO CertificadoTipoDTOResult = service.save(certifdicadoTipoDTO);
 		return new ResponseEntity<>(new ApiResponseDTO<>(true, CertificadoTipoDTOResult), HttpStatus.CREATED);
 	}
 	
-	@Operation(summary = "Actualizar un CertificadoTipo")
+	@Operation(summary = "Actualizar un  Tipo de Certificado")
 	@PutMapping(produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Object> actualizar(@RequestBody CertifdicadoTipoDTO CertifdicadoTipoDTO) {
 		CertifdicadoTipoDTO resultDTO = service.update(CertifdicadoTipoDTO);
 		return new ResponseEntity<>(new ApiResponseDTO<>(true, resultDTO), HttpStatus.CREATED);
 	}
 	
-	@Operation(summary = "Recupera por id un CertificadoTipo")
+	@Operation(summary = "Recupera por id un  Tipo de Certificado")
 	@GetMapping(value = "{id}/archivo/id", produces = { MediaType.APPLICATION_JSON_VALUE })
 	public ResponseEntity<Object> buscarPorId(@Valid @PathVariable("id") long id) {
 		CertifdicadoTipoDTO dto = new CertifdicadoTipoDTO();
@@ -67,7 +67,7 @@ public class CertificadoTipoController {
 		return new ResponseEntity<>(new ApiResponseDTO<>(true, service.find(dto)), HttpStatus.OK);
 	}
 	
-	@Operation(summary = "Eliminar por id un CertificadoTipo")
+	@Operation(summary = "Eliminar por id un  Tipo de Certificado")
 	@DeleteMapping(value = "{id}/archivo/id", produces = { MediaType.APPLICATION_JSON_VALUE} )
 	public ResponseEntity<Object> eliminar(@PathVariable Long id) {
 		CertifdicadoTipoDTO dto = new CertifdicadoTipoDTO();
