@@ -2,6 +2,7 @@ package ec.edu.insteclrg.sig_api.api.v1.administracion;
 
 import java.util.List;
 import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -14,70 +15,73 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
 import ec.edu.insteclrg.sig_api.common.Constants;
-import ec.edu.insteclrg.sig_api.domain.administracion.GestionDocumental;
+import ec.edu.insteclrg.sig_api.domain.administracion.CertificadoLaboral;
 import ec.edu.insteclrg.sig_api.dto.administracion.ApiResponseDTO;
-import ec.edu.insteclrg.sig_api.dto.administracion.GestionDocumentalDTO;
-import ec.edu.insteclrg.sig_api.service.administracion.GestionDocumentalService;
+import ec.edu.insteclrg.sig_api.dto.administracion.CertificadoLaboralDTO;
+import ec.edu.insteclrg.sig_api.service.administracion.CertificadoLaboralService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 
-
 @RestController
-@RequestMapping(value = { Constants.URI_API_GESTION_DOCUMENTAL })
-@Tag(name = "Ciclo", description = "Gestion Documental")
-public class GestionDocumentalController {
+@RequestMapping(value = {Constants.URI_API_CERTIFICADO_LABORAL})
+@Tag(name = "Certificado Laboral", description = "Gestiona los certificados laborales de los profesores")
+public class CertificadoLaboralController {
 
 	@Autowired
-	private GestionDocumentalService service;
-		
-	@Operation(summary = "Lista todos los GestionDocumental")
+	private CertificadoLaboralService service;
+	
+	@Operation(summary = "Lista todos los Certificados Laborales ")
 	@GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Object> listar() {
-		List<GestionDocumentalDTO> list = service.findAll(new GestionDocumentalDTO());
+		List<CertificadoLaboralDTO> list = service.findAll(new CertificadoLaboralDTO());
 		if (!list.isEmpty()) {
-			ApiResponseDTO<List<GestionDocumentalDTO>> response = new ApiResponseDTO<>(true, list);
+			ApiResponseDTO<List<CertificadoLaboralDTO>> response = new ApiResponseDTO<>(true, list);
 			return (new ResponseEntity<Object>(response, HttpStatus.OK));
-			} else {
-				return new ResponseEntity<>(new ApiResponseDTO<>(false, null), HttpStatus.NOT_FOUND);
-			}
+		} else {
+			return new ResponseEntity<>(new ApiResponseDTO<>(false, null), HttpStatus.NOT_FOUND);
 		}
+	}
 
-	@Operation(summary = "Guarda un nuevo GestionDocumental")
+	@Operation(summary = "Guarda un nuevo Certificado Laboral")
 	@PostMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<Object> guardar(@RequestBody GestionDocumentalDTO GestionDocumentalDTO) {
-		GestionDocumentalDTO GestionDocumentalDTOResult = service.save(GestionDocumentalDTO);
-		return new ResponseEntity<>(new ApiResponseDTO<>(true, GestionDocumentalDTOResult), HttpStatus.CREATED);
-		}
+	public ResponseEntity<Object> guardar(@RequestBody CertificadoLaboralDTO CertificadoLaboralDTO) {
+		CertificadoLaboralDTO CertificadoLaboralDTOResult = service.save(CertificadoLaboralDTO);
+		return new ResponseEntity<>(new ApiResponseDTO<>(true, CertificadoLaboralDTOResult), HttpStatus.CREATED);
+	}
 
-	@Operation(summary = "Actualiza un GestionDocumental")
+	@Operation(summary = "Actualiza un Certificado Laboral")
 	@PutMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<Object> actualizar(@RequestBody GestionDocumentalDTO GestionDocumentalDTO) {
-		GestionDocumentalDTO resultDTO = service.update(GestionDocumentalDTO);
+	public ResponseEntity<Object> actualizar(@RequestBody CertificadoLaboralDTO CertificadoLaboralDTO) {
+		CertificadoLaboralDTO resultDTO = service.update(CertificadoLaboralDTO);
 		return new ResponseEntity<>(new ApiResponseDTO<>(true, resultDTO), HttpStatus.CREATED);
-		}
+	}
 
-	@Operation(summary = "Recupera por id un GestionDocumental")
+	@Operation(summary = "Recupera por id un Certificado")
 	@GetMapping(value = "{id}/archivo/id", produces = { MediaType.APPLICATION_JSON_VALUE })
 	public ResponseEntity<Object> buscarPorId(@Valid @PathVariable("id") long id) {
-		GestionDocumentalDTO dto = new GestionDocumentalDTO();
+		CertificadoLaboralDTO dto = new CertificadoLaboralDTO();
 		dto.setId(id);
 		return new ResponseEntity<>(new ApiResponseDTO<>(true, service.find(dto)), HttpStatus.OK);
-		}
-		
-	@Operation(summary = "Eliminar por id un GestionDocumental")
+	}
+	
+	@Operation(summary = "Eliminar por id un CertificadoLaboral")
 	@DeleteMapping(value = "{id}/archivo/id", produces = { MediaType.APPLICATION_JSON_VALUE} )
 	public ResponseEntity<Object> eliminar(@PathVariable Long id) {
-		GestionDocumentalDTO dto = new GestionDocumentalDTO();
+		CertificadoLaboralDTO dto = new CertificadoLaboralDTO();
 		dto.setId(id);
-		Optional<GestionDocumental> categoryOptional = service.find(dto);
+		Optional<CertificadoLaboral> categoryOptional = service.find(dto);
+	
 		if(categoryOptional.isPresent()) {
 			service.delete(dto);
 			return new ResponseEntity<>(new ApiResponseDTO<>(true, null), HttpStatus.OK);
-			} else {
-				return new ResponseEntity<>(new ApiResponseDTO<>(false, null), HttpStatus.NOT_FOUND);
-			}
+		} else {
+			return new ResponseEntity<>(new ApiResponseDTO<>(false, null), HttpStatus.NOT_FOUND);
 		}
+	}
 
+	
+	
 }
