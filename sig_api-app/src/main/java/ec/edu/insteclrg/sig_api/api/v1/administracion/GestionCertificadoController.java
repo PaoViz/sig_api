@@ -15,11 +15,8 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import ec.edu.insteclrg.sig_api.domain.administracion.Cargo;
 import ec.edu.insteclrg.sig_api.domain.administracion.GestionCertificado;
 import ec.edu.insteclrg.sig_api.dto.administracion.ApiResponseDTO;
-import ec.edu.insteclrg.sig_api.dto.administracion.CargoDTO;
 import ec.edu.insteclrg.sig_api.dto.administracion.GestionCertificadoDTO;
 import ec.edu.insteclrg.sig_api.service.administracion.GestionCertificadoService;
 import io.swagger.v3.oas.annotations.Operation;
