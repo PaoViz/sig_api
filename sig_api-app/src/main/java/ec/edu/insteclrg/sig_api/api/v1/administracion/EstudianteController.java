@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import ec.edu.insteclrg.sig_api.common.Constants;
 import ec.edu.insteclrg.sig_api.domain.administracion.Estudiante;
 import ec.edu.insteclrg.sig_api.dto.administracion.ApiResponseDTO;
 import ec.edu.insteclrg.sig_api.dto.administracion.EstudianteDTO;
@@ -24,15 +25,14 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 
 @RestController
-@RequestMapping("/api/v1.0/estudiante")
-//@RequestMapping(value = { Constants.URI_API_PAIS })
-@Tag(name = "estudiante", description = "Gestion de Estudiantes (ej. Certificados Emitidos.")
+@RequestMapping(value = {Constants.URI_API_ESTUDIANTE})
+@Tag(name = "estudiante", description = "Gestion de Estudiantes (ej. Almacena registros de certificados emitidos de los estudiantes.")
 public class EstudianteController {
 	
 	@Autowired
 	EstudianteService service;
 	
-	@Operation(summary = "Lista todos los estudiantes")
+	@Operation(summary = "Lista todos registros de certificados emitidos de los estudiantes")
 	@GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Object> listar() {
 		List<EstudianteDTO> list = service.findAll(new EstudianteDTO());
@@ -44,14 +44,14 @@ public class EstudianteController {
 		}
 	}
 	
-	@Operation(summary = "Guarda un nuevo estudiante")
+	@Operation(summary = "Guarda un nuevo certificado emitido de un estudiante")
 	@PostMapping(produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Object> guardar(@RequestBody EstudianteDTO EstudianteDTO ) {
 		EstudianteDTO EstudianteDTOResult = service.save(EstudianteDTO);
 		return new ResponseEntity<>(new ApiResponseDTO<>(true, EstudianteDTOResult), HttpStatus.CREATED);
 	}
 	
-	@Operation(summary = "Recupera por id un estudiante")
+	@Operation(summary = "Recupera por id un certificado emitidos de un estudiante")
 	@GetMapping(value = "{id}/archivo/id", produces = { MediaType.APPLICATION_JSON_VALUE })
 	public ResponseEntity<Object> buscarPorId(@Valid @PathVariable("id") long id) {
 		EstudianteDTO dto = new EstudianteDTO();
@@ -59,7 +59,7 @@ public class EstudianteController {
 		return new ResponseEntity<>(new ApiResponseDTO<>(true, service.find(dto)), HttpStatus.OK);
 	}
 	
-	@Operation(summary = "Eliminar por id un estudiante")
+	@Operation(summary = "Eliminar por id un certificado emitido de un estudiante")
 	@DeleteMapping(value = "{id}/archivo/id", produces = { MediaType.APPLICATION_JSON_VALUE} )
 	public ResponseEntity<Object> eliminar(@PathVariable Long id) {
 		EstudianteDTO dto = new EstudianteDTO();
