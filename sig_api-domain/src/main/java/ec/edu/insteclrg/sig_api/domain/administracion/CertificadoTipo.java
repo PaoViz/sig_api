@@ -1,8 +1,6 @@
 package ec.edu.insteclrg.sig_api.domain.administracion;
 
-
-
-import java.util.Date;
+import java.sql.Date;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
