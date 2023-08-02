@@ -38,6 +38,7 @@ public class Constants {
 	public static final String URI_API_TITULO_ACADEMICO = URI_API_V1 + "titulo_academico";
 	public static final String URI_API_ESTUDIANTE = URI_API_V1 + "estudiante";
 	public static final String URI_API_GESTION_DOCUMENTAL_DOCUMENTO= URI_API_V1 + "gestion_documental_documento";
+	public static final String URI_API_CONTRATO_LABORAL = URI_API_V1 + "contrato_laboral";
 
 
 	
