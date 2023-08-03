@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import ec.edu.insteclrg.sig_api.common.Constants;
 import ec.edu.insteclrg.sig_api.dto.administracion.ApiResponseDTO;
 import ec.edu.insteclrg.sig_api.dto.administracion.TipoTituloAcademicoDTO;
 import ec.edu.insteclrg.sig_api.service.administracion.TipoTituloAcademicoService;
@@ -22,8 +24,8 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 
 @RestController
-@RequestMapping("/api/v1.0/tipo_titulo_academico")
-@Tag(name = "Titulo Academico", description = "Gestiona titulo academico (ej.tercer nivel, cuarto nivel")
+@RequestMapping(value = { Constants.URI_API_TIPO_TITULO_ACADEMICO })
+@Tag(name = "Tipo Titulo Académico", description = "Gestiona titulo academico (ej.tercer nivel, cuarto nivel)")
 public class TipoTituloAcademicoController {
 	@Autowired
 	private TipoTituloAcademicoService service;

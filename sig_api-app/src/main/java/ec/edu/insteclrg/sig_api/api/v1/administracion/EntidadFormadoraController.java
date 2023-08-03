@@ -1,8 +1,6 @@
 package ec.edu.insteclrg.sig_api.api.v1.administracion;
 
 import java.util.List;
-
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -16,60 +14,63 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import ec.edu.insteclrg.sig_api.common.Constants;
 import ec.edu.insteclrg.sig_api.dto.administracion.ApiResponseDTO;
-import ec.edu.insteclrg.sig_api.dto.administracion.EmpresaFormadoraDTO;
-import ec.edu.insteclrg.sig_api.service.administracion.EmpresaFormadoraService;
+import ec.edu.insteclrg.sig_api.dto.administracion.EntidadFormadoraDTO;
+import ec.edu.insteclrg.sig_api.service.administracion.EntidadFormadoraService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 
 @RestController
-@RequestMapping("/api/v1.0/empresaformadora")
-@Tag(name = "Empresa Formadora", description = "Gestiona las empresas formadoras")
-public class EmpresaFormadoraController {
+@RequestMapping(value = { Constants.URI_API_ENTIDAD_FORMADORA })
+@Tag(name = "EntidadFormadora", description = "Gestiona las entidades formadoras")
+public class EntidadFormadoraController {
 	@Autowired
-	private EmpresaFormadoraService service;
+	private EntidadFormadoraService service;
 	
-	@Operation(summary = "Lista todas las empresas formadoras")
+	@Operation(summary = "Listar las Entidades Formadoras")
 	@GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Object> listar() {
-		List<EmpresaFormadoraDTO> list = service.findAll(new EmpresaFormadoraDTO());
-		if (!list.isEmpty()) {
-			ApiResponseDTO<List<EmpresaFormadoraDTO>> response = new ApiResponseDTO<>(true, list);
+		List<EntidadFormadoraDTO> list = service.findAll(new EntidadFormadoraDTO());
+		if (!list.isEmpty()) { 
+			ApiResponseDTO<List<EntidadFormadoraDTO>> response = new ApiResponseDTO<>(true, list);
 			return (new ResponseEntity<Object>(response, HttpStatus.OK));
 		} else {
 			return new ResponseEntity<>(new ApiResponseDTO<>(false, null), HttpStatus.NOT_FOUND);
 		}
 	}
 
-	@Operation(summary = "Guarda un nueva empresa formadora")
+	@Operation(summary = "Guarda una nueva Entidad Formadora")
 	@PostMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<Object> guardar(@RequestBody EmpresaFormadoraDTO EmpresaFormadoraDTO) {
-		EmpresaFormadoraDTO TituloAcademicoDTOResult = service.save(EmpresaFormadoraDTO);
-		return new ResponseEntity<>(new ApiResponseDTO<>(true, TituloAcademicoDTOResult), HttpStatus.CREATED);
+	public ResponseEntity<Object> guardar(@RequestBody EntidadFormadoraDTO EntidadFormadoraDTO) {
+		EntidadFormadoraDTO EntidadFormadoraDTOResult = service.save(EntidadFormadoraDTO);
+		return new ResponseEntity<>(new ApiResponseDTO<>(true, EntidadFormadoraDTOResult), HttpStatus.CREATED);
 	}
 
-	@Operation(summary = "Actualiza una empresa formadora")
+	@Operation(summary = "Actualiza una Entidad Formadora")
 	@PutMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<Object> actualizar(@RequestBody EmpresaFormadoraDTO EmpresaFormadoraDTO) {
-		EmpresaFormadoraDTO resultDTO = service.update(EmpresaFormadoraDTO);
+	public ResponseEntity<Object> actualizar(@RequestBody EntidadFormadoraDTO EntidadFormadoraDTO) {
+		EntidadFormadoraDTO resultDTO = service.update(EntidadFormadoraDTO);
 		return new ResponseEntity<>(new ApiResponseDTO<>(true, resultDTO), HttpStatus.CREATED);
 	
 	}
 
-	@Operation(summary = "Recupera por id empresa formadora")
+	@Operation(summary = "Recupera por id Entidad Formadora")
 	@GetMapping(value = "{id}/archivo/id", produces = { MediaType.APPLICATION_JSON_VALUE })
 	public ResponseEntity<Object> buscarPorId(@Valid @PathVariable("id") long id) {
-		EmpresaFormadoraDTO dto = new EmpresaFormadoraDTO();
+		EntidadFormadoraDTO dto = new EntidadFormadoraDTO();
 		dto.setId(id);
 		return new ResponseEntity<>(new ApiResponseDTO<>(true, service.find(dto)), HttpStatus.OK);
 	}
-	@Operation(summary = "Eliminar por id empresa formadora")
+	@Operation(summary = "Eliminar por id certificado capacitacion")
 	@DeleteMapping(value = "{id}/archivo/id", produces = { MediaType.APPLICATION_JSON_VALUE} )
 	public ResponseEntity<Object> eliminar(@PathVariable Long id) {
-		EmpresaFormadoraDTO dto = new EmpresaFormadoraDTO();
+		EntidadFormadoraDTO dto = new EntidadFormadoraDTO();
 		dto.setId(id);
 	 return new ResponseEntity<>(new ApiResponseDTO<>(true, service.find(dto)), HttpStatus.OK);
 	
 	}
 }
+
+

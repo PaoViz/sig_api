@@ -15,7 +15,7 @@ import lombok.Setter;
 @Setter
 @Entity
 
-public class EmpresaFormadora {
+public class EntidadFormadora {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(updatable = false, nullable = false)
