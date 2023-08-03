@@ -13,11 +13,14 @@ import lombok.ToString;
 @ToString
 public class ProyectoDTO {
 	
-private String descripcion;
+	private Long id;
+	
+	private String descripcion;
 	
 	private Date fechainicio;
 	
 	private Date fechafin;
 	
 	private DocenteDTO docenteGestor;
+
 } 

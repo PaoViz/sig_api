@@ -4,6 +4,9 @@ import java.sql.Date;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.MappedSuperclass;
@@ -17,6 +20,12 @@ import lombok.ToString;
 @ToString
 public class Proyecto {
 	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(updatable = false, nullable = false)
+	private Long id;
+	
+	
 	@Column(nullable = false)
 	private String descripcion;
 
@@ -28,5 +37,5 @@ public class Proyecto {
 	
 	@ManyToOne(cascade = CascadeType.ALL, optional = false)
 	@JoinColumn(name = "docenteGestor_id")
-	private Docente docenteGestor;
+	private Persona docenteGestor;
 }
