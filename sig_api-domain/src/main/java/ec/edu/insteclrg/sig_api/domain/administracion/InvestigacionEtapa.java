@@ -15,7 +15,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-@Table(name = "investigacionEtapa")
+@Table(name = "investigacionetapa")
 public class InvestigacionEtapa {
 
 	@Id
@@ -24,8 +24,8 @@ public class InvestigacionEtapa {
 	private Long id;
 	
 	@Column(nullable = false, unique = true)
-	private String descripcion;
-
+	private String descripcion; 
+	
 	@ManyToOne(cascade = CascadeType.ALL, optional = false)
 	@JoinColumn(name = "proyectoacademico_id")
 	private Proyecto proyectoacademico;
