@@ -37,5 +37,5 @@ public class Proyecto {
 	
 	@ManyToOne(cascade = CascadeType.ALL, optional = false)
 	@JoinColumn(name = "docenteGestor_id")
-	private Persona docenteGestor;
+	private Docente docenteGestor;
 }
