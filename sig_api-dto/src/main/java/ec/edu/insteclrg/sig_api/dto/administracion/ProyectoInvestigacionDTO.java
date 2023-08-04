@@ -1,5 +1,6 @@
 package ec.edu.insteclrg.sig_api.dto.administracion;
 
+
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -7,11 +8,11 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class InvestigacionEtapaDTO {
+public class ProyectoInvestigacionDTO {
 
 private Long id;
 	
-	private String descripcion;
+	private String urlproyecto;
 	
-	private ProyectoInvestigacionDTO proyectoinvestigacion;
+	private DocenteDTO docente;
 }

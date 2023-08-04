@@ -15,8 +15,8 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-@Table(name = "investigacionEtapa")
-public class InvestigacionEtapa {
+@Table(name = "proyectoInvestigacion")
+public class ProyectoInvestigacion {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,9 +24,9 @@ public class InvestigacionEtapa {
 	private Long id;
 	
 	@Column(nullable = false, unique = true)
-	private String descripcion; 
+	private String urlproyecto;
 	
 	@ManyToOne(cascade = CascadeType.ALL, optional = false)
-	@JoinColumn(name = "proyectoinvestigacion_id")
-	private ProyectoInvestigacion proyectoinvestigacion;
+	@JoinColumn(name = "pais_id")
+	private Docente docente;
 }
