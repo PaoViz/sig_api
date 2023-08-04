@@ -40,7 +40,10 @@ public class Constants {
 	public static final String URI_API_GESTION_DOCUMENTAL_DOCUMENTO= URI_API_V1 + "gestion_documental_documento";
 	public static final String URI_API_CONTRATO_LABORAL = URI_API_V1 + "contrato_laboral";
 	public static final String URI_API_ENTIDAD_FORMADORA = URI_API_V1 + "entidad_formadora";
-	public static final String URI_API_TIPO_TITULO_ACADEMICO = URI_API_V1 + "tipo_titulo_academico";
+	public static final String URI_API_TIPO_TITULO_ACADEMICO = URI_API_V1 + "tipo_titulo_academico";	
+	public static final String URI_API_GESTION_DOCUMENTAL_CONVENIO = URI_API_V1 + "gestion_documental_convenio";
+	public static final String URI_API_PROYECTO_PRACTICAS = URI_API_V1 + "proyecto_practicas";	
+
 
 
 	
