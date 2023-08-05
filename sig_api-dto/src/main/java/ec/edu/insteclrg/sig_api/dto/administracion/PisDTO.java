@@ -13,7 +13,7 @@ public class PisDTO {
 	 
 	    private String descripcion;
 	    
-	    private ProyectoDTO proyecto;
+	    private ProyectoInvestigacionDTO proyecto;
 		
 	    private DocenteDTO docente;
 

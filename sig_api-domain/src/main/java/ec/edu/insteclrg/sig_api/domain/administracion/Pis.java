@@ -25,8 +25,8 @@ public class Pis {
     private String descripcion;
 	
 	@ManyToOne(cascade = CascadeType.ALL, optional = false)
-	@JoinColumn(name = "proyecto_id")
-	private Proyecto proyecto;
+	@JoinColumn(name = "proyectoInvestigacion_id")
+	private ProyectoInvestigacion proyectoInvestigacion;
 	
 	@ManyToOne(cascade = CascadeType.ALL, optional = false)
 	@JoinColumn(name = "docente_id")
@@ -38,5 +38,5 @@ public class Pis {
 	
 	@ManyToOne(cascade = CascadeType.ALL, optional = false)
 	@JoinColumn(name = "periodo_id")
-    private Periodo periodo;
+    private Periodo periodo; 
 }
