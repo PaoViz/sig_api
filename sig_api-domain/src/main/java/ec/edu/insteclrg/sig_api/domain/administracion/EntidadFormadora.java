@@ -8,23 +8,26 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
 @Entity
-@Table(name = "estudiante")
 
-public class Estudiante {
-	
+public class EntidadFormadora {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(updatable = false, nullable = false)
 	private Long id;
 
+	@Column(updatable = false, nullable = false, unique = true)
+	private String ruc;
+
+	@Column(nullable = false)
+	private String descripcion;
+	
 	@ManyToOne(cascade = CascadeType.ALL, optional = false)
-	@JoinColumn(name = "persona_id")
-	private Persona persona;
+	@JoinColumn(name = "sector_productivo_id")
+	private SectorProductivo sectorProductivo;
 }

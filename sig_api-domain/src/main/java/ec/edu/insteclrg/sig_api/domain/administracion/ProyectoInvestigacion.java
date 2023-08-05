@@ -15,16 +15,18 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-@Table(name = "estudiante")
+@Table(name = "proyectoInvestigacion")
+public class ProyectoInvestigacion {
 
-public class Estudiante {
-	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(updatable = false, nullable = false)
 	private Long id;
-
+	
+	@Column(nullable = false, unique = true)
+	private String urlproyecto;
+	
 	@ManyToOne(cascade = CascadeType.ALL, optional = false)
-	@JoinColumn(name = "persona_id")
-	private Persona persona;
+	@JoinColumn(name = "pais_id")
+	private Docente docente;
 }

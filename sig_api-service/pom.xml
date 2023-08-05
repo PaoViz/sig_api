@@ -13,11 +13,6 @@
 		<!-- Modules -->
 		<dependency>
 			<groupId>ec.edu.insteclrg</groupId>
-			<artifactId>sig_api-common</artifactId>
-			<version>${project.parent.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>ec.edu.insteclrg</groupId>
 			<artifactId>sig_api-domain</artifactId>
 			<version>${project.parent.version}</version>
 		</dependency>

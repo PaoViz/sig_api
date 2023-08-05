@@ -7,10 +7,13 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class EstudianteDTO {
+public class EntidadFormadoraDTO {
 	
 	private Long id;
 	
-	private PersonaDTO persona;
-
+	private String ruc;
+	
+	private String descripcion;
+	
+	private SectorProductivoDTO sectorProductivo;
 }

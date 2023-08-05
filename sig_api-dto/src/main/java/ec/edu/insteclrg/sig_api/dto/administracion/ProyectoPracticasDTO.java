@@ -7,13 +7,12 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class EmpresaFormadoraDTO {
-	
+public class ProyectoPracticasDTO {
+
 	private Long id;
+	private String urlPlanificacion;
+	private PeriodoDTO periodo;
+	private String horasPlanificadas;
+
 	
-	private String ruc;
-	
-	private String descripcion;
-	
-	private SectorProductivoDTO sectorProductivo;
 }

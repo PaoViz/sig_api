@@ -1,5 +1,7 @@
 package ec.edu.insteclrg.sig_api.domain.administracion;
 
+import java.sql.Date;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -15,16 +17,35 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-@Table(name = "estudiante")
+@Table(name = "gestiondocumentaldocumento")
+public class GestionDocumentalDocumento {
 
-public class Estudiante {
-	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(updatable = false, nullable = false)
 	private Long id;
 
+	@Column(nullable = false, unique = true)
+	private String codigo;
+	
+	@Column(nullable = false, unique = true)
+	private String titulo;
+	
+	@Column()
+	private Date fechaCreacion;
+	
+	@Column()
+	private String url;
+	
+	@Column(nullable = false, unique = true)
+	private String observacion;
+	
 	@ManyToOne(cascade = CascadeType.ALL, optional = false)
-	@JoinColumn(name = "persona_id")
-	private Persona persona;
+	@JoinColumn(name = "periodo_id")
+	private Periodo periodo;
+	
+	@ManyToOne(cascade = CascadeType.ALL, optional = false)
+	@JoinColumn(name = "gestionDocumental_id")
+	private GestionDocumental gestionDocumental;
+
 }

@@ -16,63 +16,60 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import ec.edu.insteclrg.sig_api.common.Constants;
-import ec.edu.insteclrg.sig_api.domain.administracion.CertificadoLaboral;
+import ec.edu.insteclrg.sig_api.domain.administracion.ContratoLaboral;
 import ec.edu.insteclrg.sig_api.dto.administracion.ApiResponseDTO;
-import ec.edu.insteclrg.sig_api.dto.administracion.CertificadoLaboralDTO;
-import ec.edu.insteclrg.sig_api.service.administracion.CertificadoLaboralService;
+import ec.edu.insteclrg.sig_api.dto.administracion.ContratoLaboralDTO;
+import ec.edu.insteclrg.sig_api.service.administracion.ContratoLaboralService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 
 @RestController
-@RequestMapping(value = {Constants.URI_API_CERTIFICADO_LABORAL})
-@Tag(name = "Certificado Laboral", description = "Gestiona los certificados laborales de los profesores")
-public class CertificadoLaboralController {
+@RequestMapping("/api/v1.0/contrato_laboral")
+@Tag(name = "ContratoLaboral", description = "Gestiona Tiempo completo, medio tiempi, etc.")
+public class ContratoLaboralController {
 
 	@Autowired
-	private CertificadoLaboralService service;
-	
-	@Operation(summary = "Lista todos los Certificados Laborales ")
+	ContratoLaboralService service;
+
+	@Operation(summary = "Lista todos los contratos laborales")
 	@GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Object> listar() {
-		List<CertificadoLaboralDTO> list = service.findAll(new CertificadoLaboralDTO());
+		List<ContratoLaboralDTO> list = service.findAll(new ContratoLaboralDTO());
 		if (!list.isEmpty()) {
-			ApiResponseDTO<List<CertificadoLaboralDTO>> response = new ApiResponseDTO<>(true, list);
-			return (new ResponseEntity<Object>(response, HttpStatus.OK));
-		} else {
+			ApiResponseDTO<List<ContratoLaboralDTO>> response = new ApiResponseDTO<>(true, list);
+			return (new ResponseEntity<Object>(response, HttpStatus.OK));} else {
 			return new ResponseEntity<>(new ApiResponseDTO<>(false, null), HttpStatus.NOT_FOUND);
 		}
 	}
 
-	@Operation(summary = "Guarda un nuevo Certificado Laboral")
+	@Operation(summary = "Guarda un nuevo contrato laboral")
 	@PostMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<Object> guardar(@RequestBody CertificadoLaboralDTO CertificadoLaboralDTO) {
-		CertificadoLaboralDTO CertificadoLaboralDTOResult = service.save(CertificadoLaboralDTO);
-		return new ResponseEntity<>(new ApiResponseDTO<>(true, CertificadoLaboralDTOResult), HttpStatus.CREATED);
+	public ResponseEntity<Object> guardar(@RequestBody ContratoLaboralDTO contratolaboralDTO) {
+		ContratoLaboralDTO ContratoLaboralDTOResult = service.save(contratolaboralDTO);
+		return new ResponseEntity<>(new ApiResponseDTO<>(true, ContratoLaboralDTOResult), HttpStatus.CREATED);
 	}
 
-	@Operation(summary = "Actualiza un Certificado Laboral")
+	@Operation(summary = "Actualizar un Contrato Laboral")
 	@PutMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<Object> actualizar(@RequestBody CertificadoLaboralDTO CertificadoLaboralDTO) {
-		CertificadoLaboralDTO resultDTO = service.update(CertificadoLaboralDTO);
+	public ResponseEntity<Object> actualizar(@RequestBody ContratoLaboralDTO contratolaboralDTO) {
+		ContratoLaboralDTO resultDTO = service.update(contratolaboralDTO);
 		return new ResponseEntity<>(new ApiResponseDTO<>(true, resultDTO), HttpStatus.CREATED);
 	}
 
-	@Operation(summary = "Recupera por id un Certificado Laboral")
+	@Operation(summary = "Recupera por id un Contrato Laboral")
 	@GetMapping(value = "{id}/archivo/id", produces = { MediaType.APPLICATION_JSON_VALUE })
 	public ResponseEntity<Object> buscarPorId(@Valid @PathVariable("id") long id) {
-		CertificadoLaboralDTO dto = new CertificadoLaboralDTO();
-		dto.setId(id);
+		ContratoLaboralDTO dto = new ContratoLaboralDTO();dto.setId(id);
 		return new ResponseEntity<>(new ApiResponseDTO<>(true, service.find(dto)), HttpStatus.OK);
 	}
 	
-	@Operation(summary = "Eliminar por id un Certificado Laboral")
+	@Operation(summary = "Eliminar por id un Contrato Laboral")
 	@DeleteMapping(value = "{id}/archivo/id", produces = { MediaType.APPLICATION_JSON_VALUE} )
 	public ResponseEntity<Object> eliminar(@PathVariable Long id) {
-		CertificadoLaboralDTO dto = new CertificadoLaboralDTO();
+		ContratoLaboralDTO dto = new ContratoLaboralDTO();
 		dto.setId(id);
-		Optional<CertificadoLaboral> categoryOptional = service.find(dto);
+		Optional<ContratoLaboral> categoryOptional = service.find(dto);
 	
 		if(categoryOptional.isPresent()) {
 			service.delete(dto);

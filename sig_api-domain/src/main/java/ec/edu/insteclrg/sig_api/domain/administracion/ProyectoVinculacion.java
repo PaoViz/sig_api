@@ -8,26 +8,30 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
 @Entity
+@Table(name = "proyectoVinculacion")
+public class ProyectoVinculacion extends Proyecto {
 
-public class EmpresaFormadora {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(updatable = false, nullable = false)
 	private Long id;
 
-	@Column(updatable = false, nullable = false, unique = true)
-	private String ruc;
+	@ManyToOne(cascade = CascadeType.ALL, optional = false)
+	@JoinColumn()
+	private Docente docenteAdministrador;
 
 	@Column(nullable = false)
-	private String descripcion;
+	private String urlProyecto;
 	
-	@ManyToOne(cascade = CascadeType.ALL, optional = false)
-	@JoinColumn(name = "sector_productivo_id")
-	private SectorProductivo sectorProductivo;
+	@Column()
+	private String urlItv;
+	
+	
 }
