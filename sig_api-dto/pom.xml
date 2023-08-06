@@ -9,4 +9,11 @@
 	<properties>
 		<filter.src>${basedir}/..</filter.src>
 	</properties>
+	<dependencies>
+		<dependency>
+			<groupId>ec.edu.insteclrg</groupId>
+			<artifactId>sig_api-common</artifactId>
+			<version>${project.parent.version}</version>
+		</dependency>
+	</dependencies>
 </project>
