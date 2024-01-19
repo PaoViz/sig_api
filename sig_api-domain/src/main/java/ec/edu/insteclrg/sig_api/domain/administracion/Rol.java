@@ -22,4 +22,5 @@ public class Rol {
 	
 	@Column(nullable = false, unique = true)
 	private String descripcion;
+	
 }
