@@ -46,6 +46,7 @@ public class Constants {
 	public static final String URI_API_PROYECTO_VINCULACION_PLANIFICACION = URI_API_V1 + "proyecto_vinculacion_planificacion";
 	public static final String URI_API_PIS = URI_API_V1 + "pis";	
 	public static final String URI_API_INVESTIGACION_EVIDENCIA = URI_API_V1 + "investigacion_evidencia";	
+	public static final String URI_API_ROL = URI_API_V1 + "rol";
 
 
 
