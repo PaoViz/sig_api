@@ -37,7 +37,7 @@ public class RolUsuario {
 	private Date fechaCreacion;
 	
 	@Column()
-	private Boolean enabled;
+	private Boolean estado;
 	
 	
 	
