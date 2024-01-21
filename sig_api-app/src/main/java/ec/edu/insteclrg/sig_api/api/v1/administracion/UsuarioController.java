@@ -49,8 +49,8 @@ public class UsuarioController {
 	@Operation(summary = "Guarda un nuevo Usuario")
 	@PostMapping(produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Object> guardar(@RequestBody UsuarioDTO UsuarioDTO) {
-		UsuarioDTO CantonDTOResult = service.save(UsuarioDTO);
-		return new ResponseEntity<>(new ApiResponseDTO<>(true, CantonDTOResult), HttpStatus.CREATED);
+		UsuarioDTO UsuarioDTOResult = service.save(UsuarioDTO);
+		return new ResponseEntity<>(new ApiResponseDTO<>(true, UsuarioDTOResult), HttpStatus.CREATED);
 	}
 
 	@Operation(summary = "Actualiza un Usuario")
