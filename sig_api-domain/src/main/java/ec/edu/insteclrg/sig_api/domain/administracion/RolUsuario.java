@@ -36,6 +36,9 @@ public class RolUsuario {
 	@Column(nullable = false)
 	private Date fechaCreacion;
 	
+	@Column()
+	private Boolean enabled;
+	
 	
 	
 
