@@ -1,7 +1,10 @@
-package ec.edu.insteclrg.sig_api.dto.administracion;
+package ec.edu.insteclrg.sig_api.dto.gestiondocumental;
 
 import java.sql.Date;
 import java.util.Set;
+
+import ec.edu.insteclrg.sig_api.dto.general.CarreraDTO;
+import ec.edu.insteclrg.sig_api.dto.general.TipoConvenioDTO;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;

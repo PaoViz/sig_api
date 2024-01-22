@@ -1,10 +1,14 @@
-package ec.edu.insteclrg.sig_api.dto.administracion;
+package ec.edu.insteclrg.sig_api.dto.certificado;
 
 
 
 
 
 import java.sql.Date;
+
+import ec.edu.insteclrg.sig_api.dto.general.CertifdicadoTipoDTO;
+import ec.edu.insteclrg.sig_api.dto.general.PersonaDTO;
+import ec.edu.insteclrg.sig_api.dto.general.UsuarioDTO;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;

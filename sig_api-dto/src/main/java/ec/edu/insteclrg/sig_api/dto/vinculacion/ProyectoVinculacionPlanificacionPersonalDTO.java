@@ -1,4 +1,4 @@
-package ec.edu.insteclrg.sig_api.dto.administracion;
+package ec.edu.insteclrg.sig_api.dto.vinculacion;
 
 import lombok.Getter;
 import lombok.Setter;

@@ -1,4 +1,4 @@
-package ec.edu.insteclrg.sig_api.dto.administracion;
+package ec.edu.insteclrg.sig_api.dto.gestiondocumental;
 
 import java.sql.Date;
 

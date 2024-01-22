@@ -1,6 +1,8 @@
-package ec.edu.insteclrg.sig_api.dto.administracion;
+package ec.edu.insteclrg.sig_api.dto.talentohumano;
 
 
+import ec.edu.insteclrg.sig_api.dto.general.PersonaDTO;
+import ec.edu.insteclrg.sig_api.dto.general.TipoAdministrativoDTO;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;

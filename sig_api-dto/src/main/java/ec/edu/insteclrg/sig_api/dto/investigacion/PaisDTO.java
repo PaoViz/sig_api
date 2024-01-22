@@ -1,4 +1,4 @@
-package ec.edu.insteclrg.sig_api.dto.administracion;
+package ec.edu.insteclrg.sig_api.dto.investigacion;
 
 import jakarta.persistence.MappedSuperclass;
 import lombok.Getter;

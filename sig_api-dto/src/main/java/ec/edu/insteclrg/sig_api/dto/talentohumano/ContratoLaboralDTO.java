@@ -1,7 +1,11 @@
-package ec.edu.insteclrg.sig_api.dto.administracion;
+package ec.edu.insteclrg.sig_api.dto.talentohumano;
 
 import java.sql.Date;
 
+import ec.edu.insteclrg.sig_api.dto.general.CargoDTO;
+import ec.edu.insteclrg.sig_api.dto.general.GrupoOcupacionalDTO;
+import ec.edu.insteclrg.sig_api.dto.general.ModalidadContratoDTO;
+import ec.edu.insteclrg.sig_api.dto.general.PersonaDTO;
 import jakarta.persistence.MappedSuperclass;
 import lombok.Getter;
 import lombok.Setter;
