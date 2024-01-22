@@ -1,8 +1,10 @@
-package ec.edu.insteclrg.sig_api.domain.administracion;
+package ec.edu.insteclrg.sig_api.domain.talentohumano;
 
 
 import java.sql.Date;
 
+import ec.edu.insteclrg.sig_api.domain.general.Persona;
+import ec.edu.insteclrg.sig_api.domain.general.TipoCertificadoLaboral;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

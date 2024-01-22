@@ -1,5 +1,8 @@
-package ec.edu.insteclrg.sig_api.domain.administracion;
+package ec.edu.insteclrg.sig_api.domain.investigacion;
 
+import ec.edu.insteclrg.sig_api.domain.general.Ciclo;
+import ec.edu.insteclrg.sig_api.domain.general.Periodo;
+import ec.edu.insteclrg.sig_api.domain.talentohumano.Docente;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

@@ -1,4 +1,4 @@
-package ec.edu.insteclrg.sig_api.domain.administracion;
+package ec.edu.insteclrg.sig_api.domain.investigacion;
 
 
 import jakarta.persistence.CascadeType;

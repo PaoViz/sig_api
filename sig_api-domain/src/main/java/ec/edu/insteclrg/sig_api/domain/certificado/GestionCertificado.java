@@ -1,7 +1,10 @@
-package ec.edu.insteclrg.sig_api.domain.administracion;
+package ec.edu.insteclrg.sig_api.domain.certificado;
 
 import java.sql.Date;
 
+import ec.edu.insteclrg.sig_api.domain.general.CertificadoTipo;
+import ec.edu.insteclrg.sig_api.domain.general.Persona;
+import ec.edu.insteclrg.sig_api.domain.general.Usuario;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

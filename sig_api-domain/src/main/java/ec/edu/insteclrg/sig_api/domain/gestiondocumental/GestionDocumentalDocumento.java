@@ -1,7 +1,8 @@
-package ec.edu.insteclrg.sig_api.domain.administracion;
+package ec.edu.insteclrg.sig_api.domain.gestiondocumental;
 
 import java.sql.Date;
 
+import ec.edu.insteclrg.sig_api.domain.general.Periodo;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

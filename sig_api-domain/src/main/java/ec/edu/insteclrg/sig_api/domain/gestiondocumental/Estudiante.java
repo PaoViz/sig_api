@@ -1,5 +1,6 @@
-package ec.edu.insteclrg.sig_api.domain.administracion;
+package ec.edu.insteclrg.sig_api.domain.gestiondocumental;
 
+import ec.edu.insteclrg.sig_api.domain.general.Persona;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

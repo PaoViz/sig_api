@@ -1,5 +1,6 @@
-package ec.edu.insteclrg.sig_api.domain.administracion;
+package ec.edu.insteclrg.sig_api.domain.vinculacion;
 
+import ec.edu.insteclrg.sig_api.domain.general.SectorProductivo;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
