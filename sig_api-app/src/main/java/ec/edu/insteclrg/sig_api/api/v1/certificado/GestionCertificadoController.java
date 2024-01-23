@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import ec.edu.insteclrg.sig_api.common.Constants;
 import ec.edu.insteclrg.sig_api.domain.certificado.GestionCertificado;
 import ec.edu.insteclrg.sig_api.dto.administracion.ApiResponseDTO;
 import ec.edu.insteclrg.sig_api.dto.certificado.GestionCertificadoDTO;
@@ -26,9 +27,8 @@ import jakarta.validation.Valid;
 
 
 @RestController
-@RequestMapping("/api/v1.0/gestion_certificado")
+@RequestMapping(value = {Constants.URI_API_GESTION_CERTIFICADO})
 @Tag(name = "gestion_certificado", description = "Gestiona los certificados(ej. emision de certificados etc.")
-
 public class GestionCertificadoController {
 
 	@Autowired
