@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import ec.edu.insteclrg.sig_api.common.Constants;
 import ec.edu.insteclrg.sig_api.domain.talentohumano.ContratoLaboral;
 import ec.edu.insteclrg.sig_api.dto.administracion.ApiResponseDTO;
 import ec.edu.insteclrg.sig_api.dto.talentohumano.ContratoLaboralDTO;
@@ -25,10 +26,9 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 
 @RestController
-@RequestMapping("/api/v1.0/contrato_laboral")
+@RequestMapping(value = {Constants.URI_API_CONTRATO_LABORAL})
 @Tag(name = "ContratoLaboral", description = "Gestiona Tiempo completo, medio tiempi, etc.")
 public class ContratoLaboralController {
-
 	@Autowired
 	ContratoLaboralService service;
 
