@@ -51,6 +51,7 @@ public class Constants {
 	public static final String URI_API_CONTRATO_LABORLA = URI_API_V1 + "contrato_laboral";
 	public static final String URI_API_GESTION_CERTIFICADO = URI_API_V1 + "gestion_certificado";
 	public static final String URI_API_TIPO_ADMINISTRATIVO = URI_API_V1 + "tipo_administrativo";
+	public static final String URI_API_ESTRUCTURA_CONVENIO_CARRERA = URI_API_V1 + "estructura_convenio_carrera";
 
 
 
