@@ -48,6 +48,9 @@ public class Constants {
 	public static final String URI_API_INVESTIGACION_EVIDENCIA = URI_API_V1 + "investigacion_evidencia";	
 	public static final String URI_API_ROL = URI_API_V1 + "rol";
 	public static final String URI_API_ROL_USUARIO = URI_API_V1 + "rol_usuario";
+	public static final String URI_API_CONTRATO_LABORLA = URI_API_V1 + "contrato_laboral";
+	public static final String URI_API_GESTION_CERTIFICADO = URI_API_V1 + "gestion_certificado";
+	public static final String URI_API_TIPO_ADMINISTRATIVO = URI_API_V1 + "tipo_administrativo";
 
 
 
