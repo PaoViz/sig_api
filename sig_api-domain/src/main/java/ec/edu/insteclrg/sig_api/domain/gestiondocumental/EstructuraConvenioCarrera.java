@@ -25,7 +25,7 @@ public class EstructuraConvenioCarrera {
 	private Long id;
 	
 	@ManyToOne(cascade = CascadeType.ALL, optional = false)
-	@JoinColumn(name = "gestionDocumental_id")
+	@JoinColumn(name = "gestionDocumentalConvenio_id")
 	private GestionDocumentalConvenio gestionDocumentalConvenio;
 	
 	@ManyToOne(cascade = CascadeType.ALL, optional = false)
