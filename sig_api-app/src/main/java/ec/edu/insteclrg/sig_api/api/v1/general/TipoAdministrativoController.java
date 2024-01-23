@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import ec.edu.insteclrg.sig_api.common.Constants;
 import ec.edu.insteclrg.sig_api.dto.administracion.ApiResponseDTO;
 import ec.edu.insteclrg.sig_api.dto.general.TipoAdministrativoDTO;
 import ec.edu.insteclrg.sig_api.service.general.TipoAdministrativoService;
@@ -21,7 +23,7 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 
 @RestController
-@RequestMapping("/api/v1.0/tipoadministrativo")
+@RequestMapping(value = {Constants.URI_API_TIPO_ADMINISTRATIVO})
 @Tag(name = "Tipo Administrativo", description = "Gestiona tipo administrativo")
 public class TipoAdministrativoController {
 	@Autowired
