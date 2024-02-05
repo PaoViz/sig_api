@@ -1,4 +1,4 @@
-package ec.edu.insteclrg.sig_api.service.investigacion;
+package ec.edu.insteclrg.sig_api.service.general;
 
 import java.util.Optional;
 
@@ -8,8 +8,8 @@ import org.springframework.stereotype.Service;
 
 import ec.edu.insteclrg.sig_api.common.exception.ApiException;
 import ec.edu.insteclrg.sig_api.domain.general.Pais;
-import ec.edu.insteclrg.sig_api.dto.investigacion.PaisDTO;
-import ec.edu.insteclrg.sig_api.persistence.investigacion.PaisPersistence;
+import ec.edu.insteclrg.sig_api.dto.general.PaisDTO;
+import ec.edu.insteclrg.sig_api.persistence.general.PaisPersistence;
 import ec.edu.insteclrg.sig_api.service.GenericCrudServiceImpl;
 
 @Service
