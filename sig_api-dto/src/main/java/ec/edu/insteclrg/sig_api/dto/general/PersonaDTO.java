@@ -2,7 +2,6 @@ package ec.edu.insteclrg.sig_api.dto.general;
 
 import java.sql.Date;
 
-import ec.edu.insteclrg.sig_api.dto.investigacion.PaisDTO;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
