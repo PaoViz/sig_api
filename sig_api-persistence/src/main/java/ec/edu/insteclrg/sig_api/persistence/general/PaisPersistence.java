@@ -1,4 +1,4 @@
-package ec.edu.insteclrg.sig_api.persistence.investigacion;
+package ec.edu.insteclrg.sig_api.persistence.general;
 
 import java.util.Optional;
 
