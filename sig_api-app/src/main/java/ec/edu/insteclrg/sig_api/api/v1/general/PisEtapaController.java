@@ -17,7 +17,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import ec.edu.insteclrg.sig_api.common.Constants;
 import ec.edu.insteclrg.sig_api.dto.administracion.ApiResponseDTO;
-import ec.edu.insteclrg.sig_api.dto.general.PaisDTO;
 import ec.edu.insteclrg.sig_api.dto.general.PisEtapaDTO;
 import ec.edu.insteclrg.sig_api.service.general.PisEtapaService;
 import io.swagger.v3.oas.annotations.Operation;
