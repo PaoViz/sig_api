@@ -17,8 +17,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import ec.edu.insteclrg.sig_api.common.Constants;
 import ec.edu.insteclrg.sig_api.dto.administracion.ApiResponseDTO;
-import ec.edu.insteclrg.sig_api.dto.investigacion.PaisDTO;
-import ec.edu.insteclrg.sig_api.service.investigacion.PaisService;
+import ec.edu.insteclrg.sig_api.dto.general.PaisDTO;
+import ec.edu.insteclrg.sig_api.service.general.PaisService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
